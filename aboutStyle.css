@@ -1,0 +1,637 @@
+@media (min-width: 1024px) {
+    .game-card.active {
+        transform: translateX(var(--card-tx-desktop)) translateY(var(--card-ty-desktop)) rotate(var(--card-rotate-desktop));
+    }
+}
+
+.game-card:hover {
+    z-index: 100 !important;
+    transform: translateY(-50px) rotate(0deg) scale(1.08) !important;
+}
+
+/* --- Global Reveal Engine --- */
+
+.grid-pattern {
+    background-image: radial-gradient(rgba(225, 29, 72, 0.08) 1px, transparent 1px);
+    background-size: 30px 30px;
+}
+
+
+@keyframes shimmer {
+    0% {
+        background-position: 0% center;
+    }
+
+    100% {
+        background-position: 200% center;
+    }
+}
+
+.perspective-1000 {
+    perspective: 1000px;
+}
+
+.transform-style-3d {
+    transform-style: preserve-3d;
+}
+
+.transform-translate-z-50 {
+    transform: translateZ(50px);
+}
+
+.tilt-card:hover .card-3d-content {
+    transform: rotateX(5deg) rotateY(-5deg);
+    box-shadow: 20px 20px 60px rgba(0, 0, 0, 0.5), -5px -5px 20px rgba(225, 29, 72, 0.1);
+}
+
+.grid-pattern {
+    background-image: radial-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+    background-size: 40px 40px;
+}
+
+
+.perspective-1000 {
+    perspective: 1000px;
+}
+
+.transform-style-3d {
+    transform-style: preserve-3d;
+}
+
+.book-inner {
+    transform-origin: center;
+    transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@keyframes scrollLine {
+    0% {
+        transform: translateY(-100%);
+    }
+
+    100% {
+        transform: translateY(1000%);
+    }
+}
+
+/* Mobile Fix: Ensure numbers and books align vertically on small screens */
+@media (max-width: 768px) {
+    .perspective-1000 {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .md\:w-1\/2 {
+        width: 100%;
+    }
+
+    .absolute.left-1\/2 {
+        display: none;
+    }
+
+    /* Hide line on small mobile if needed */
+}
+
+
+
+
+.eye-socket {
+    width: 110px;
+    height: 110px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(225, 29, 72, 0.03);
+    border-radius: 50%;
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.eye-outer {
+    width: 75px;
+    height: 75px;
+    background: #f0f0f0;
+    border-radius: 50%;
+    position: relative;
+    overflow: hidden;
+    border: 3px solid #000;
+    box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.3), 0 0 30px rgba(225, 29, 72, 0.2);
+}
+
+.iris {
+    width: 48px;
+    height: 48px;
+    background: radial-gradient(circle, #E11D48 0%, #be1038 60%, #000 100%);
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid rgba(0, 0, 0, 0.4);
+}
+
+.pupil {
+    width: 22px;
+    height: 22px;
+    background: #000;
+    border-radius: 50%;
+    position: relative;
+}
+
+.pupil-shimmer {
+    width: 7px;
+    height: 7px;
+    background: #fff;
+    border-radius: 50%;
+    position: absolute;
+    top: 3px;
+    left: 3px;
+    opacity: 0.9;
+}
+
+/* Technology Shutter Eyelids */
+.eyelid-top,
+.eyelid-bottom {
+    position: absolute;
+    width: 100%;
+    height: 0%;
+    background: #000;
+    z-index: 10;
+    transition: height 0.12s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.eyelid-top {
+    top: 0;
+    border-bottom: 1.5px solid #E11D48;
+}
+
+.eyelid-bottom {
+    bottom: 0;
+    border-top: 1.5px solid #E11D48;
+}
+
+/* Blink State Triggered via JS */
+.eye-outer.blink .eyelid-top,
+.eye-outer.blink .eyelid-bottom {
+    height: 51%;
+}
+
+
+
+.perspective-2000 {
+    perspective: 2000px;
+}
+
+.transform-style-3d {
+    transform-style: preserve-3d;
+}
+
+.translate-z-\[-60px\] {
+    transform: translateZ(-60px) rotate(-12deg);
+}
+
+.translate-z-\[50px\] {
+    transform: translateZ(50px) rotate(3deg);
+}
+
+.translate-z-\[120px\] {
+    transform: translateZ(120px) rotate(-6deg);
+}
+
+[x-cloak] {
+    display: none !important;
+}
+
+
+
+@media all {
+
+    /* section padding safe for all screens */
+    section {
+        padding-inline: 1.5rem;
+    }
+
+    /* card container reset */
+    .relative.h-\[550px\] {
+        height: auto;
+        flex-direction: column;
+        gap: 2rem;
+    }
+
+    /* remove absolute positioning & tilt */
+    .game-card {
+        position: relative !important;
+        inset: unset !important;
+        transform: none !important;
+        width: 100%;
+        max-width: 450px;
+        margin: 0 auto;
+    }
+
+    /* inner card straight box */
+    .game-card>div {
+        transform: none !important;
+        width: 100% !important;
+    }
+}
+
+
+
+
+/* =========================
+   LARGE TABLETS & BELOW
+   ========================= */
+
+
+
+/* =========================
+   TABLETS
+   ========================= */
+/* @media (max-width: 768px) {
+    section {
+        padding-top: 4rem !important;
+        padding-bottom: 4rem !important;
+    }
+
+    .flex.lg\:flex-row {
+        flex-direction: column;
+        text-align: center;
+        gap: 3rem;
+    }
+
+    #parallax-container {
+        height: 450px;
+        margin-top: 2rem;
+    }
+
+    #parallax-container .w-80 {
+        width: 15rem;
+        height: 350px;
+    }
+
+    #parallax-container .translate-z-\[-60px\],
+    #parallax-container .translate-z-\[120px\] {
+        transform: translateZ(0);
+    }
+
+    .grid-cols-3 {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+} */
+
+
+/* =========================
+   MOBILE DEVICES
+   ========================= */
+@media (max-width: 480px) {
+    section {
+        padding-top: 3rem !important;
+        padding-bottom: 3rem !important;
+    }
+
+    h2 {
+        font-size: 2.2rem;
+        line-height: 1.2;
+        text-align: center;
+    }
+
+    p {
+        font-size: 1rem;
+        text-align: center;
+        padding-left: 0;
+        border: none;
+        margin-bottom: 2rem;
+    }
+
+    .grid-cols-3 {
+        grid-template-columns: 1fr;
+    }
+
+    #parallax-container {
+        height: 400px;
+        margin-top: 2rem;
+    }
+
+    #parallax-container .w-80 {
+        width: 14rem;
+        height: 320px;
+    }
+
+    #parallax-container .w-64 {
+        display: none;
+    }
+
+    .material-symbols-outlined {
+        font-size: 24px;
+    }
+}
+
+
+/* =========================
+   VERY SMALL DEVICES
+   ========================= */
+@media (max-width: 360px) {
+    h2 {
+        font-size: 2rem;
+    }
+
+    #parallax-container .w-80 {
+        width: 14rem;
+        height: 340px;
+    }
+}
+
+
+
+
+
+
+
+/* =========================
+   LAPTOP & SMALL DESKTOP
+   ========================= */
+@media (max-width: 1200px) {
+    .tilt-card {
+        height: 520px;
+    }
+
+    .tilt-card h4 {
+        font-size: 1.7rem;
+    }
+}
+
+
+/* =========================
+   TABLET VIEW
+   ========================= */
+@media (max-width: 1024px) {
+    .grid.md\:grid-cols-3 {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .tilt-card {
+        height: 500px;
+    }
+
+    h2 {
+        font-size: clamp(3rem, 5vw, 4.5rem);
+    }
+
+    .reveal {
+        margin-bottom: 4rem;
+    }
+}
+
+
+/* =========================
+   TABLET & LARGE MOBILE
+   ========================= */
+@media (max-width: 768px) {
+    section {
+        padding: 40px 0 !important;
+    }
+
+    .flex.md\:flex-row {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .flex.md\:flex-row>p {
+        border-left: none;
+        padding-left: 0;
+        max-width: 100%;
+        margin-top: 1.5rem;
+    }
+
+    .grid.md\:grid-cols-3 {
+        grid-template-columns: 1fr;
+    }
+
+    .tilt-card {
+        height: 460px;
+    }
+
+    h2 {
+        font-size: 3rem;
+        line-height: 1.1;
+    }
+}
+
+
+/* =========================
+   MOBILE VIEW
+   ========================= */
+@media (max-width: 480px) {
+    section {
+        padding: 32px 0 !important;
+    }
+
+    h2 {
+        font-size: 2.4rem;
+        text-align: center;
+    }
+
+    .text-sm.tracking-\[0\.3em\] {
+        text-align: center;
+        display: block;
+    }
+
+    .reveal>div {
+        justify-content: center;
+    }
+
+    .tilt-card {
+        height: 420px;
+    }
+
+    .tilt-card .p-10 {
+        padding: 1.5rem;
+    }
+
+    .tilt-card h4 {
+        font-size: 1.4rem;
+    }
+
+    .tilt-card p {
+        font-size: 0.95rem;
+    }
+}
+
+
+/* =========================
+   VERY SMALL DEVICES
+   ========================= */
+@media (max-width: 360px) {
+    h2 {
+        font-size: 2rem;
+    }
+
+    .tilt-card {
+        height: 380px;
+    }
+}
+
+
+/* ===============================
+   MOBILE OPTIMIZATION
+================================ */
+@media (max-width: 640px) {
+
+    /* reduce vertical padding */
+    .py-24 {
+        padding-top: 3rem !important;
+        /* 48px */
+        padding-bottom: 3rem !important;
+    }
+
+    /* prevent content cutting */
+    .overflow-hidden {
+        overflow-x: hidden !important;
+        overflow-y: visible !important;
+    }
+
+    /* soften grid pattern for mobile */
+    .grid-pattern {
+        background-size: 28px 28px !important;
+        opacity: 100;
+    }
+
+}
+
+@media (min-width: 641px) and (max-width: 1024px) {
+
+    .py-24 {
+        padding-top: 5rem !important;
+        padding-bottom: 5rem !important;
+    }
+
+    .grid-pattern {
+        background-size: 40px 40px !important;
+    }
+
+}
+
+
+
+
+
+
+
+
+
+
+/* =================================
+   DESKTOP & TABLET – SHOW 1 2 3
+   ================================= */
+@media (min-width: 769px) {
+    .z-30.w-14.h-14 {
+        display: flex !important;
+    }
+}
+
+
+/* =================================
+   MOBILE ONLY – HIDE 1 2 3
+   ================================= */
+@media (max-width: 768px) {
+    .z-30.w-14.h-14 {
+        display: none !important;
+    }
+}
+
+
+.material-symbols-outlined {
+    display: inline-block;
+    font-size: 28px;
+    line-height: 1;
+}
+
+
+#hour-hand,
+#min-hand,
+#sec-hand {
+    position: absolute;
+    bottom: 50%;
+    left: 50%;
+    transform-origin: bottom center;
+    transform: translateX(-50%) rotate(0deg);
+    border-radius: 999px;
+}
+
+#hour-hand {
+    width: 6px;
+    height: 40px;
+    background: #0f172a;
+    /* slate-900 */
+    z-index: 5;
+}
+
+#min-hand {
+    width: 4px;
+    height: 55px;
+    background: #334155;
+    /* slate-700 */
+    z-index: 6;
+}
+
+#sec-hand {
+    width: 2px;
+    height: 65px;
+    background: #ef4444;
+    /* red-500 */
+    z-index: 7;
+}
+
+
+
+
+.nav-about {
+
+    margin-left: 150px;
+    /* desktop */
+}
+
+@media (max-width: 768px) {
+    .nav-about {
+        left: 0px;
+        /* or 120px if needed */
+    }
+}
+
+
+
+
+/* Media query for smaller screens (example: max-width 768px) */
+@media (max-width: 768px) {
+    img {
+        right: 30px;
+    }
+}
+
+
+
+@media (max-width: 768px) {
+    .logo_footer {
+        width: 7rem;
+        height: 7rem;
+    }
+}
+
+
+
+
+html,
+body {
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+}
+
+
+
+body {
+    position: relative;
+}

@@ -1,0 +1,176 @@
+/**
+ * Three.js Virtual Background - Styling & Effects
+ * Enhanced visual effects and styling for the 3D background
+ */
+
+/* Canvas styling */
+#virtual-bg-canvas {
+    display: block;
+    width: 100% !important;
+    height: 100% !important;
+    background: linear-gradient(135deg, #05000a 0%, #0f0015 50%, #05000a 100%);
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: -10;
+    pointer-events: none;
+}
+
+/* Optional: Add an overlay gradient for better content readability */
+.virtual-bg-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: 
+        radial-gradient(ellipse at top, rgba(5, 0, 10, 0) 0%, rgba(5, 0, 10, 0.3) 100%),
+        radial-gradient(ellipse at bottom right, rgba(225, 29, 72, 0.05) 0%, rgba(5, 0, 10, 0.3) 100%);
+    pointer-events: none;
+    z-index: -9;
+    mix-blend-mode: multiply;
+}
+
+/* Content that sits on top of the background */
+body > *:not(#virtual-bg-canvas):not(.virtual-bg-overlay) {
+    position: relative;
+    z-index: 1;
+}
+
+/* Smooth transitions for content over background */
+section {
+    transition: background-color 0.3s ease;
+}
+
+/* Enhanced glass effect for navigation that overlays the background */
+.glass-nav {
+    background: rgba(5, 0, 10, 0.4);
+    backdrop-filter: blur(14px);
+    border: 1px solid rgba(225, 29, 72, 0.2);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+}
+
+/* Hero section enhanced styling */
+.hero-text {
+    animation: fadeInUp 1s ease-out 0.2s forwards;
+    opacity: 0;
+}
+
+.hero-title {
+    animation: fadeInUp 1s ease-out 0.4s forwards;
+    opacity: 0;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Parallax effect helper */
+.parallax-section {
+    position: relative;
+    overflow: hidden;
+}
+
+/* Content cards with subtle background blur effect */
+.content-card {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: all 0.3s ease;
+}
+
+.content-card:hover {
+    background: rgba(255, 255, 255, 0.08);
+    border-color: rgba(225, 29, 72, 0.3);
+    box-shadow: 0 8px 32px rgba(225, 29, 72, 0.1);
+}
+
+/* Text effects for better readability over the dynamic background */
+.text-glow {
+    text-shadow: 0 0 10px rgba(225, 29, 72, 0.3),
+                 0 0 20px rgba(0, 212, 255, 0.1);
+}
+
+/* Loading animation for the 3D background */
+@keyframes pulse {
+    0%, 100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.8;
+    }
+}
+
+#virtual-bg-canvas {
+    animation: pulse 4s ease-in-out infinite;
+}
+
+/* Mobile optimizations */
+@media (max-width: 768px) {
+    #virtual-bg-canvas {
+        /* Reduce quality on mobile for performance */
+        image-rendering: auto;
+    }
+
+    .glass-nav {
+        backdrop-filter: blur(8px);
+    }
+
+    .content-card {
+        backdrop-filter: blur(5px);
+    }
+}
+
+/* Print styles */
+@media print {
+    #virtual-bg-canvas,
+    .virtual-bg-overlay {
+        display: none;
+    }
+}
+
+/* Accessibility: Reduce motion preferences */
+@media (prefers-reduced-motion: reduce) {
+    #virtual-bg-canvas,
+    .hero-text,
+    .hero-title {
+        animation: none;
+        transition: none;
+    }
+}
+
+/* Dark mode support (already applied, but explicitly set) */
+:root {
+    color-scheme: dark;
+}
+
+/* Scrollbar styling to match theme */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: rgba(5, 0, 10, 0.5);
+}
+
+::-webkit-scrollbar-thumb {
+    background: rgba(225, 29, 72, 0.6);
+    border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: rgba(225, 29, 72, 0.8);
+}
+
+/* Firefox scrollbar */
+* {
+    scrollbar-color: rgba(225, 29, 72, 0.6) rgba(5, 0, 10, 0.5);
+    scrollbar-width: thin;
+}

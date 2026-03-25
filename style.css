@@ -1,0 +1,164 @@
+/* Base Optimizations */
+.glass-nav {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+#ai-canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    pointer-events: none;
+    width: 100%;
+    height: 100%;
+}
+
+#services-area {
+    z-index: 10;
+    position: relative;
+}
+
+.reveal-text {
+    opacity: 1 !important;
+    /* அனிமேஷன் வேலை செய்யவில்லை என்றாலும் டெக்ஸ்ட் தெரியும்படி செய்ய */
+}
+
+/* Service Animation CSS - Crucial for your fix */
+.service-hover-row {
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.service-hover-row:hover {
+    background-color: rgba(225, 29, 72, 0.05);
+    padding-left: 20px;
+}
+
+.service-title {
+    transition: color 0.5s ease;
+    position: relative;
+    width: fit-content;
+}
+
+.service-title::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 0%;
+    height: 2px;
+    background: #E11D48;
+    transition: width 0.5s ease;
+}
+
+.service-hover-row:hover .service-title::after {
+    width: 100%;
+}
+
+/* Video Box expansion */
+.image-box {
+    transition: height 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+    will-change: height;
+}
+
+.service-hover-row:hover .image-box {
+    height: 400px !important;
+}
+
+/* Details expansion */
+.details-wrap {
+    transition: all 0.7s ease;
+}
+
+/* Others */
+.award-sticky-card {
+    width: 100%;
+    height: 550px;
+    position: relative;
+    overflow: hidden;
+    border-radius: 3rem;
+    will-change: transform;
+}
+
+/* Portfolio outlined heading */
+.portfolio-outline-text {
+    color: transparent;
+    -webkit-text-stroke: 2px rgba(255, 255, 255, 0.18);
+    letter-spacing: -0.02em;
+    line-height: 0.85;
+}
+
+.portfolio-item {
+    cursor: pointer;
+    will-change: transform;
+    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.4s ease;
+}
+
+.portfolio-item:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 30px 60px -10px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(225, 29, 72, 0.15);
+}
+
+.exp-slide {
+    display: none;
+}
+
+.exp-slide.active {
+    display: block;
+    animation: fadeIn 0.8s ease;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@media (max-width: 768px) {
+    .logo {
+        /* width: 7rem;
+        height: 7rem; */
+        position: relative;
+        right: 30px;
+    }
+
+   
+}
+
+
+* {
+    body {
+        color: white !important;
+        margin: -1 !important;
+        padding: 0;
+    }
+}
+
+
+
+
+/* Tubelight Navbar-ஐ கட்டாயமாக Header-க்குள் பொருத்துவதற்கான CSS */
+#header-nav-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#header-nav-container > div, 
+#header-nav-container > nav {
+    position: relative !important; /* திரையில் மிதப்பதைத் தடுக்கிறது */
+    top: auto !important;
+    bottom: auto !important;
+    left: auto !important;
+    transform: none !important; /* சென்டராக வருவதை சரிசெய்ய */
+    background: transparent !important; /* அடியில் உள்ள அந்த கறுப்பு பேக்ரவுண்டை எடுக்க */
+    box-shadow: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+}

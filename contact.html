@@ -1,0 +1,1073 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <link rel="icon" type="image/png" href="Data/image/Almity_logo_black.png" sizes="192x192" />
+    <title>Contact Us | AlMity – Let's Build Something Amazing</title>
+    <meta name="description"
+        content="Get in touch with AlMity Digital Marketing. Let's create powerful campaigns together." />
+
+    <script src="https://cdn.tailwindcss.com?plugins=forms,typography"></script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;700;800;900&display=swap"
+        rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
+        rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: { primary: "#E11D48" },
+                    fontFamily: { display: ["Outfit", "sans-serif"], sans: ["Inter", "sans-serif"] },
+                }
+            }
+        };
+    </script>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #05000a;
+            color: white;
+            font-family: 'Inter', sans-serif;
+            overflow-x: hidden;
+        }
+
+        /* ── CANVAS ── */
+        #ai-canvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        /* ── NAV ── */
+        .glass-nav {
+            background: rgba(255, 255, 255, 0.06);
+            backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.10);
+        }
+
+        /* ── HERO GLOW ── */
+        .hero-glow {
+            background: radial-gradient(ellipse 80% 60% at 50% 0%, rgba(225, 29, 72, 0.20) 0%, transparent 70%);
+        }
+
+        .hero-outline-text {
+            color: transparent;
+            -webkit-text-stroke: 1.5px rgba(255, 255, 255, 0.12);
+            font-size: clamp(60px, 12vw, 140px);
+            line-height: 0.88;
+            letter-spacing: -0.04em;
+        }
+
+        /* ── GLASS CARD ── */
+        .glass-card {
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(20px);
+            border-radius: 1.75rem;
+            transition: border-color 0.4s, box-shadow 0.4s, transform 0.4s;
+        }
+
+        .glass-card:hover {
+            border-color: rgba(225, 29, 72, 0.35);
+            box-shadow: 0 24px 48px -12px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(225, 29, 72, 0.12);
+            transform: translateY(-4px);
+        }
+
+        /* ── FORM INPUTS ── */
+        .form-field {
+            position: relative;
+            margin-bottom: 1.5rem;
+        }
+
+        .form-field input,
+        .form-field textarea,
+        .form-field select {
+            width: 100%;
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(255, 255, 255, 0.10);
+            border-radius: 1rem;
+            padding: 1.1rem 1.25rem;
+            color: white;
+            font-family: 'Inter', sans-serif;
+            font-size: 0.9rem;
+            outline: none;
+            transition: border-color 0.3s, box-shadow 0.3s, background 0.3s;
+        }
+
+        .form-field input::placeholder,
+        .form-field textarea::placeholder {
+            color: rgba(255, 255, 255, 0.3);
+        }
+
+        .form-field input:focus,
+        .form-field textarea:focus,
+        .form-field select:focus {
+            border-color: rgba(225, 29, 72, 0.6);
+            background: rgba(225, 29, 72, 0.05);
+            box-shadow: 0 0 0 3px rgba(225, 29, 72, 0.12);
+        }
+
+        .form-field label {
+            display: block;
+            font-size: 0.72rem;
+            font-weight: 700;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: rgba(255, 255, 255, 0.4);
+            margin-bottom: 0.5rem;
+        }
+
+        .form-field select option {
+            background: #1a0010;
+            color: white;
+        }
+
+        /* ── SUBMIT BUTTON ── */
+        .submit-btn {
+            position: relative;
+            overflow: hidden;
+            background: #E11D48;
+            color: white;
+            border: none;
+            border-radius: 999px;
+            padding: 1.1rem 2.5rem;
+            font-family: 'Outfit', sans-serif;
+            font-weight: 800;
+            font-size: 0.9rem;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: background 0.3s, transform 0.3s, box-shadow 0.3s;
+        }
+
+        .submit-btn::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.2), transparent);
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .submit-btn:hover {
+            background: #be1038;
+            transform: translateY(-2px);
+            box-shadow: 0 16px 32px rgba(225, 29, 72, 0.4);
+        }
+
+        .submit-btn:hover::after {
+            opacity: 1;
+        }
+
+        .submit-btn:active {
+            transform: translateY(0);
+        }
+
+        /* ── INFO CARDS ── */
+        .info-card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.07);
+            border-radius: 1.5rem;
+            padding: 1.75rem;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            cursor: default;
+        }
+
+        .info-card:hover {
+            background: rgba(225, 29, 72, 0.08);
+            border-color: rgba(225, 29, 72, 0.30);
+            transform: translateY(-3px);
+        }
+
+        .info-icon {
+            width: 52px;
+            height: 52px;
+            background: rgba(225, 29, 72, 0.12);
+            border: 1px solid rgba(225, 29, 72, 0.25);
+            border-radius: 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #E11D48;
+            transition: all 0.4s;
+            flex-shrink: 0;
+        }
+
+        .info-card:hover .info-icon {
+            background: #E11D48;
+            color: white;
+            box-shadow: 0 8px 20px rgba(225, 29, 72, 0.4);
+        }
+
+        /* ── FAQ ACCORDION ── */
+        .faq-item {
+            border: 1px solid rgba(255, 255, 255, 0.07);
+            border-radius: 1rem;
+            overflow: hidden;
+            transition: border-color 0.3s;
+        }
+
+        .faq-item.open {
+            border-color: rgba(225, 29, 72, 0.3);
+        }
+
+        .faq-btn {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 1.25rem 1.5rem;
+            background: rgba(255, 255, 255, 0.03);
+            color: white;
+            font-family: 'Inter', sans-serif;
+            font-weight: 600;
+            font-size: 0.95rem;
+            text-align: left;
+            cursor: pointer;
+            transition: background 0.3s;
+            border: none;
+            outline: none;
+        }
+
+        .faq-btn:hover {
+            background: rgba(225, 29, 72, 0.06);
+        }
+
+        .faq-btn .faq-icon {
+            width: 28px;
+            height: 28px;
+            background: rgba(255, 255, 255, 0.06);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: transform 0.4s, background 0.3s;
+            flex-shrink: 0;
+        }
+
+        .faq-item.open .faq-icon {
+            transform: rotate(45deg);
+            background: rgba(225, 29, 72, 0.3);
+            color: #E11D48;
+        }
+
+        .faq-body {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            background: rgba(255, 255, 255, 0.02);
+        }
+
+        .faq-body.open {
+            max-height: 200px;
+        }
+
+        .faq-body p {
+            padding: 0 1.5rem 1.25rem;
+            color: rgba(255, 255, 255, 0.5);
+            font-size: 0.9rem;
+            line-height: 1.7;
+        }
+
+        /* ── SOCIAL BTN ── */
+        .social-btn {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 0.75rem 1.25rem;
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(255, 255, 255, 0.09);
+            border-radius: 999px;
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.8rem;
+            font-weight: 600;
+            transition: all 0.3s;
+            text-decoration: none;
+        }
+
+        .social-btn:hover {
+            background: rgba(225, 29, 72, 0.12);
+            border-color: rgba(225, 29, 72, 0.4);
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        .social-btn .icon {
+            width: 28px;
+            height: 28px;
+            background: rgba(225, 29, 72, 0.15);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #E11D48;
+            font-size: 0.75rem;
+        }
+
+        /* ── SCROLL REVEAL ── */
+        .reveal {
+            opacity: 0;
+            transform: translateY(36px);
+        }
+
+        .revealed {
+            opacity: 1;
+            transform: translateY(0);
+            transition: opacity 0.8s ease, transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .reveal-left {
+            opacity: 0;
+            transform: translateX(-40px);
+        }
+
+        .revealed-left {
+            opacity: 1;
+            transform: translateX(0);
+            transition: opacity 0.8s ease, transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        /* ── TAG PILL ── */
+        .tag-pill {
+            background: rgba(225, 29, 72, 0.12);
+            border: 1px solid rgba(225, 29, 72, 0.25);
+            color: #fb7185;
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            border-radius: 999px;
+            padding: 4px 14px;
+            text-transform: uppercase;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .tag-pill::before {
+            content: '';
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: #E11D48;
+            animation: pulse-dot 2s infinite;
+        }
+
+        @keyframes pulse-dot {
+
+            0%,
+            100% {
+                opacity: 1;
+                transform: scale(1);
+            }
+
+            50% {
+                opacity: 0.5;
+                transform: scale(0.7);
+            }
+        }
+
+        /* ── SCROLLBAR ── */
+        ::-webkit-scrollbar {
+            width: 5px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #05000a;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #E11D48;
+            border-radius: 3px;
+        }
+
+        /* ── SUCCESS MESSAGE ── */
+        .success-toast {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            background: rgba(16, 185, 129, 0.15);
+            border: 1px solid rgba(16, 185, 129, 0.4);
+            color: #6ee7b7;
+            padding: 1rem 1.5rem;
+            border-radius: 1rem;
+            backdrop-filter: blur(16px);
+            font-weight: 600;
+            font-size: 0.85rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            transform: translateY(100px);
+            opacity: 0;
+            transition: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+            z-index: 9999;
+        }
+
+        .success-toast.show {
+            transform: translateY(0);
+            opacity: 1;
+        }
+    </style>
+
+    <link rel="stylesheet" href="colors.css">
+</head>
+
+<body>
+    <!-- ══ AI CANVAS BACKGROUND ══ -->
+    <canvas id="ai-canvas"></canvas>
+
+    <!-- ══ NAV ══ -->
+    <header class="fixed top-0 left-0 right-0 z-50 px-6 pt-5">
+        <nav class="max-w-7xl mx-auto glass-nav rounded-full px-8 h-16 flex items-center justify-between">
+            <a href="index.html">
+                <img src="Data/image/Almity_logo_white.png" alt="AlMity" class="h-28 object-contain">
+            </a>
+
+            <div class="hidden lg:flex items-center gap-8 text-sm font-semibold text-white/80">
+                <a href="index.html" class="hover:text-primary transition-colors">Home</a>
+                <a href="about.html" class="hover:text-primary transition-colors">About</a>
+                <a href="portfolio.html" class="hover:text-primary transition-colors">Portfolio</a>
+                <a href="contact.html" class="text-primary font-bold">Contact</a>
+            </div>
+
+            <!-- Mobile menu btn -->
+            <button id="menu-btn" class="lg:hidden text-white">
+                <span class="material-symbols-outlined text-3xl">menu</span>
+            </button>
+
+            <a href="contact.html"
+                class="hidden lg:block bg-primary text-white px-6 py-2.5 rounded-full text-xs font-bold hover:bg-red-700 transition-all shadow-lg">
+                Get in Touch
+            </a>
+        </nav>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu"
+            class="lg:hidden fixed top-0 right-0 w-72 h-full bg-black/95 backdrop-blur-2xl translate-x-full transition-transform duration-500 z-[100]">
+            <div class="flex justify-between items-center px-8 py-6 border-b border-white/10">
+                <span class="text-white font-bold text-xl font-display">ALMITY</span>
+                <button id="close-menu" class="text-white hover:text-primary transition-colors">
+                    <span class="material-symbols-outlined text-4xl">close</span>
+                </button>
+            </div>
+            <nav class="flex flex-col gap-8 px-8 py-12 text-xl font-display font-bold text-white/90">
+                <a href="index.html" class="hover:text-primary transition-all">Home</a>
+                <a href="about.html" class="hover:text-primary transition-all">About Us</a>
+                <a href="portfolio.html" class="hover:text-primary transition-all">Portfolio</a>
+                <a href="contact.html" class="text-primary">Contact</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="relative z-10">
+
+        <!-- ══ HERO ══ -->
+        <section class="relative min-h-[70vh] flex flex-col justify-center pt-32 pb-16 overflow-hidden">
+            <div class="hero-glow absolute inset-0 pointer-events-none"></div>
+            <div class="absolute inset-0 pointer-events-none"
+                style="background-image: linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px); background-size: 80px 80px;">
+            </div>
+
+            <div class="max-w-7xl mx-auto px-6 w-full relative z-10">
+                <div class="flex items-center gap-3 mb-8 reveal">
+                    <span class="w-10 h-px bg-primary"></span>
+                    <span class="tag-pill">Contact Us</span>
+                </div>
+
+                <div class="mb-6 reveal" style="transition-delay:0.1s">
+                    <div class="hero-outline-text font-display font-black uppercase select-none">Contact</div>
+                    <h1 class="font-display font-black uppercase text-4xl md:text-6xl leading-tight mt-2">
+                        <span
+                            style="background: linear-gradient(135deg, #fff 30%, rgba(225,29,72,0.8) 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">
+                            Let's Build Something
+                        </span><br>
+                        <span class="text-white/25 font-light italic text-3xl md:text-4xl">Extraordinary
+                            Together.</span>
+                    </h1>
+                </div>
+
+                <p class="max-w-lg text-white/45 text-lg leading-relaxed reveal" style="transition-delay:0.2s">
+                    Have a project in mind? We'd love to hear about it. Drop us a message and let's turn your vision
+                    into reality.
+                </p>
+
+                <!-- Quick contact pills -->
+                <div class="flex flex-wrap gap-3 mt-8 reveal" style="transition-delay:0.3s">
+                    <a href="tel:+919103952006" class="social-btn">
+                        <span class="icon"><i class="fas fa-phone text-xs"></i></span>
+                        +91 9103952006
+                    </a>
+                    <a href="mailto:Sirajarun96@gmail.com" class="social-btn">
+                        <span class="icon"><i class="fas fa-envelope text-xs"></i></span>
+                        Sirajarun96@gmail.com
+                    </a>
+                    <a href="https://www.google.com/url?sa=t&source=web&rct=j&opi=89978449&url=https://www.instagram.com/siraj_arun/&ved=2ahUKEwiYqJ2qubqTAxUKTGwGHfNOPAMQFnoECCEQAQ&usg=AOvVaw0pWENZvy5th0XIbngzbI5q" target="_blank" class="social-btn">
+                        <span class="icon"><i class="fab fa-instagram text-xs"></i></span>
+                        Instagram
+                    </a>
+                    <a href="https://www.google.com/url?sa=t&source=web&rct=j&opi=89978449&url=https://www.youtube.com/%40SAcomrades&ved=2ahUKEwiYqJ2qubqTAxUKTGwGHfNOPAMQFnoECB8QAQ&usg=AOvVaw0GHcCG9bRnxFWBFopUNVMS" target="_blank" class="social-btn">
+                        <span class="icon"><i class="fab fa-youtube text-xs"></i></span>
+                        Youtube
+                    </a>
+                    <a href="https://www.facebook.com/share/1QEPpKmEKh/" target="_blank" class="social-btn">
+                        <span class="icon"><i class="fab fa-facebook text-xs"></i></span>
+                        facebook
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- ══ INFO CARDS ROW ══ -->
+        <section class="max-w-7xl mx-auto px-6 pb-16">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4 reveal">
+                <div class="info-card flex items-start gap-4">
+                    <div class="info-icon">
+                        <span class="material-symbols-outlined text-xl">location_on</span>
+                    </div>
+                    <div>
+                        <h3 class="font-bold text-white text-sm mb-1">Office Address</h3>
+                        <p class="text-white/40 text-sm leading-relaxed">6/3a, Suduthanni Vaikkal Theru,<br>Arappalayam,
+                            Madurai,<br>Tamil Nadu – 625016</p>
+                    </div>
+                </div>
+                <div class="info-card flex items-start gap-4">
+                    <div class="info-icon">
+                        <span class="material-symbols-outlined text-xl">headset_mic</span>
+                    </div>
+                    <div>
+                        <h3 class="font-bold text-white text-sm mb-1">24/7 Support</h3>
+                        <p class="text-white/40 text-sm leading-relaxed">
+                            <span class="block">📞 +91 9103952006</span>
+                            <span class="block">✉️ Sirajarun96@gmail.com</span>
+                        </p>
+                    </div>
+                </div>
+                <div class="info-card flex items-start gap-4">
+                    <div class="info-icon">
+                        <span class="material-symbols-outlined text-xl">schedule</span>
+                    </div>
+                    <div>
+                        <h3 class="font-bold text-white text-sm mb-1">Business Hours</h3>
+                        <p class="text-white/40 text-sm leading-relaxed">
+                            <span class="block">Mon – Sat: 8 AM – 10 PM</span>
+                            <span class="block">Sunday: 11 AM – 5 PM</span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ══ MAIN CONTENT: FORM + FAQ ══ -->
+        <section class="max-w-7xl mx-auto px-6 pb-32">
+            <div class="grid lg:grid-cols-12 gap-10">
+
+                <!-- ── CONTACT FORM ── -->
+                <div class="lg:col-span-5 reveal-left">
+                    <div class="glass-card p-8 md:p-10 sticky top-28">
+                        <div class="flex items-center gap-2 mb-2">
+                            <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+                            <span class="text-xs text-white/40 font-semibold">Avg. response time: ~1 hour</span>
+                        </div>
+                        <h2 class="font-display font-bold text-2xl md:text-3xl text-white mb-8 leading-tight">
+                            Tell us about<br>your project 🎯
+                        </h2>
+
+                        <form id="contact-form" class="space-y-1" novalidate>
+                            <div class="form-field">
+                                <label>Full Name</label>
+                                <input type="text" id="name" placeholder="e.g. Arun Kumar" required />
+                            </div>
+                            <div class="form-field">
+                                <label>Email Address</label>
+                                <input type="email" id="email" placeholder="you@company.com" required />
+                            </div>
+                            <div class="form-field">
+                                <label>Phone Number</label>
+                                <input type="tel" id="phone" placeholder="+91 98765 43210" />
+                            </div>
+                            <div class="form-field">
+                                <label>Service Needed</label>
+                                <select id="service">
+                                    <option value="">Select a service...</option>
+                                    <option>Social Media Marketing</option>
+                                    <option>Film / Brand Promotions</option>
+                                    <option>Content Creation</option>
+                                    <option>Creator Management</option>
+                                    <option>Campaign Strategy</option>
+                                    <option>Analytics & Reporting</option>
+                                    <option>Other</option>
+                                </select>
+                            </div>
+                            <div class="form-field">
+                                <label>Your Message</label>
+                                <textarea id="message" rows="4"
+                                    placeholder="Describe your project, goals, or any questions..." required></textarea>
+                            </div>
+
+                            <div class="flex items-center justify-between pt-4 mt-2 border-t border-white/[0.06]">
+                                <!-- Avatar cluster -->
+                                <div class="flex items-center gap-3">
+                                    <div class="flex -space-x-2">
+                                        <img src="Data/image/profile1.jpg"
+                                            class="w-9 h-9 rounded-full border-2 border-[#05000a] object-cover"
+                                            alt="Team">
+                                        <img src="Data/image/profile2.jpg"
+                                            class="w-9 h-9 rounded-full border-2 border-[#05000a] object-cover"
+                                            alt="Team">
+                                    </div>
+                                    <span class="text-white/30 text-xs font-medium">Our team replies fast</span>
+                                </div>
+                                <button type="submit" class="submit-btn flex items-center gap-2" id="submit-btn">
+                                    Send Message
+                                    <span class="material-symbols-outlined text-[18px]">send</span>
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+                <!-- ── FAQ SECTION ── -->
+                <div class="lg:col-span-7 reveal" style="transition-delay:0.15s">
+                    <div class="mb-10">
+                        <div class="flex items-center gap-3 mb-4">
+                            <span class="w-10 h-px bg-primary"></span>
+                            <span class="text-primary text-xs font-bold uppercase tracking-[0.2em]">Knowledge
+                                Base</span>
+                        </div>
+                        <h2 class="font-display font-black text-4xl md:text-5xl text-white leading-tight mb-2">
+                            Everything you<br>need to
+                            <span
+                                style="background: linear-gradient(135deg, #E11D48, #fb7185); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">know.</span>
+                        </h2>
+                        <p class="text-white/35 text-base mt-4 max-w-md">Quick answers to the questions we get most
+                            often.</p>
+                    </div>
+
+                    <!-- FAQ Tabs -->
+                    <div class="flex gap-1 mb-8 p-1 rounded-full w-fit"
+                        style="background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.08);">
+                        <button onclick="switchFaqTab('general')" id="faq-tab-general"
+                            class="faq-tab-btn px-5 py-2 rounded-full text-xs font-bold uppercase tracking-wider transition-all bg-primary text-white">
+                            General
+                        </button>
+                        <button onclick="switchFaqTab('services')" id="faq-tab-services"
+                            class="faq-tab-btn px-5 py-2 rounded-full text-xs font-bold uppercase tracking-wider transition-all text-white/40 hover:text-white">
+                            Services
+                        </button>
+                        <button onclick="switchFaqTab('pricing')" id="faq-tab-pricing"
+                            class="faq-tab-btn px-5 py-2 rounded-full text-xs font-bold uppercase tracking-wider transition-all text-white/40 hover:text-white">
+                            Pricing
+                        </button>
+                    </div>
+
+                    <!-- FAQ Items -->
+                    <div id="faq-list" class="space-y-3"></div>
+
+                    <!-- CTA Banner inside FAQ section -->
+                    <div class="mt-12 p-8 rounded-[1.5rem] relative overflow-hidden reveal"
+                        style="background: linear-gradient(135deg, rgba(225,29,72,0.15) 0%, rgba(225,29,72,0.04) 60%, transparent); border: 1px solid rgba(225,29,72,0.2);">
+                        <div class="absolute top-0 right-0 w-32 h-32 rounded-full bg-primary/10 blur-3xl"></div>
+                        <p class="text-primary text-xs font-bold uppercase tracking-[0.2em] mb-3">Ready to Start?</p>
+                        <h3 class="font-display font-black text-3xl text-white mb-3 leading-tight">
+                            Let's build your next<br><span class="text-primary">big campaign</span>
+                        </h3>
+                        <p class="text-white/35 text-sm mb-6">Strategy + creativity + execution — all under one roof.
+                        </p>
+                        <div class="flex flex-wrap gap-3">
+                            <a href="portfolio.html"
+                                class="flex items-center gap-2 bg-white/10 text-white px-5 py-2.5 rounded-full text-sm font-bold hover:bg-white/20 transition-all border border-white/10">
+                                View Portfolio
+                                <span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+                            </a>
+                            <a href="tel:+919103952006"
+                                class="flex items-center gap-2 bg-primary text-white px-5 py-2.5 rounded-full text-sm font-bold hover:bg-red-700 transition-all shadow-lg shadow-primary/30">
+                                Call Us Now
+                                <span class="material-symbols-outlined text-[16px]">call</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+    </main>
+
+    <!-- ══ FOOTER ══ -->
+    <footer class="border-t border-white/[0.06] relative z-10 bg-[#05000a]">
+        <div class="max-w-7xl mx-auto px-6 py-8 md:py-16">
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-12 mb-12">
+                <div class="flex flex-col items-center sm:items-start">
+                    <img src="Data/image/Almity_logo_white.png" alt="AlMity" class="h-20 md:h-32 object-contain mb-4 md:mb-5">
+                    <p class="text-white/35 text-xs md:text-sm leading-relaxed mb-4 md:mb-6 text-center sm:text-left">Elevating brands through data-driven digital
+                        strategies and creative excellence.</p>
+                    <div class="flex gap-3 justify-center sm:justify-start">
+                        <a href="https://www.google.com/url?sa=t&source=web&rct=j&opi=89978449&url=https://www.instagram.com/siraj_arun/&ved=2ahUKEwiYqJ2qubqTAxUKTGwGHfNOPAMQFnoECCEQAQ&usg=AOvVaw0pWENZvy5th0XIbngzbI5q" target="_blank"
+                            class="w-9 h-9 border border-white/10 rounded-full flex items-center justify-center text-white/40 hover:text-primary hover:border-primary transition-all text-xs"><i
+                                class="fab fa-instagram"></i></a>
+                        <a href="https://www.google.com/url?sa=t&source=web&rct=j&opi=89978449&url=https://www.facebook.com/share/1QEPpKmEKh/&ved=2ahUKEwiYqJ2qu" target="_blank"
+                            class="w-9 h-9 border border-white/10 rounded-full flex items-center justify-center text-white/40 hover:text-primary hover:border-primary transition-all text-xs"><i
+                                class="fab fa-facebook"></i></a>
+                        <a href="https://www.google.com/url?sa=t&source=web&rct=j&opi=89978449&url=https://www.youtube.com/%40SAcomrades&ved=2ahUKEwiYqJ2qubqTAxUKTGwGHfNOPAMQFnoECB8QAQ&usg=AOvVaw0GHcCG9bRnxFWBFopUNVMS" target="_blank"
+                            class="w-9 h-9 border border-white/10 rounded-full flex items-center justify-center text-white/40 hover:text-primary hover:border-primary transition-all text-xs"><i
+                                class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="text-center sm:text-left">
+                    <h4 class="font-bold text-white text-xs md:text-sm mb-4 md:mb-6 uppercase tracking-widest">Quick Links</h4>
+                    <ul class="space-y-2 md:space-y-3 text-white/40 text-xs md:text-sm inline-block sm:block">
+                        <li><a href="index.html" class="hover:text-primary transition-colors">Home</a></li>
+                        <li><a href="about.html" class="hover:text-primary transition-colors">About Us</a></li>
+                        <li><a href="portfolio.html" class="hover:text-primary transition-colors">Portfolio</a></li>
+                        <li><a href="contact.html" class="hover:text-primary transition-colors">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="text-center sm:text-left">
+                    <h4 class="font-bold text-white text-xs md:text-sm mb-4 md:mb-6 uppercase tracking-widest">Contact</h4>
+                    <ul class="space-y-2 md:space-y-3 text-white/40 text-xs md:text-sm inline-block sm:block">
+                        <li class="flex items-start gap-2"><span class="text-primary mt-0.5">📍</span> Madurai, Tamil
+                            Nadu 625016</li>
+                        <li class="flex items-center gap-2"><span class="text-primary">📞</span> +91 9103952006</li>
+                        <li class="flex items-center gap-2"><span class="text-primary">✉️</span> Sirajarun96@gmail.com</li>
+                    </ul>
+                </div>
+                <div class="text-center sm:text-left">
+                    <h4 class="font-bold text-white text-xs md:text-sm mb-3 md:mb-4 uppercase tracking-widest">Newsletter</h4>
+                    <p class="text-white/30 text-xs md:text-sm mb-3 md:mb-4">Get the latest digital marketing insights.</p>
+                    <div class="relative w-full max-w-xs mx-auto sm:mx-0 sm:max-w-none">
+                        <input type="email" placeholder="Your email"
+                            class="w-full bg-white/[0.05] border border-white/10 rounded-full py-2 md:py-3 px-4 md:px-5 text-xs md:text-sm text-white placeholder:text-white/25 outline-none focus:border-primary/50">
+                        <button
+                            class="absolute right-1 md:right-1.5 top-1/2 -translate-y-1/2 bg-primary text-white px-3 md:px-5 py-1.5 md:py-2 rounded-full text-xs font-bold hover:bg-red-700 transition-all whitespace-nowrap">Join</button>
+                    </div>
+                </div>
+            </div>
+            <div
+                class="pt-6 md:pt-8 border-t border-white/[0.06] flex flex-col items-center justify-center gap-4 md:gap-2 text-white/25 text-xs text-center">
+                <div class="flex flex-col gap-2 md:gap-0 md:flex-row md:items-center md:justify-center">
+                    <p class="md:whitespace-nowrap">© 2026 AlMity Digital Marketing. All rights reserved.</p>
+                    <span class="hidden md:inline-block mx-2">•</span>
+                    <p class="md:whitespace-nowrap">© 2026 Developed by HexaVision Technologies.</p>
+                </div>
+                <div class="flex gap-4 md:gap-6 justify-center">
+                    <a href="#" class="hover:text-white transition-colors">Privacy Policy</a>
+                    <a href="#" class="hover:text-white transition-colors">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Success Toast -->
+    <div id="success-toast" class="success-toast">
+        <span class="material-symbols-outlined text-emerald-400">check_circle</span>
+        Message sent! We'll get back to you soon.
+    </div>
+
+    <!-- ══ SCRIPTS ══ -->
+    <script>
+        // ════════════════════════════════════════════════
+        // AI CANVAS — Neural Network Particle Animation
+        // ════════════════════════════════════════════════
+        (function () {
+            const canvas = document.getElementById('ai-canvas');
+            const ctx = canvas.getContext('2d');
+            let W, H, nodes = [], RAF;
+
+            const CONFIG = {
+                nodeCount: 80,
+                maxDist: 160,
+                nodeRadius: 2,
+                primaryColor: '#E11D48',
+                speed: 0.4,
+            };
+
+            function resize() {
+                W = canvas.width = window.innerWidth;
+                H = canvas.height = window.innerHeight;
+            }
+
+            class Node {
+                constructor() { this.reset(true); }
+                reset(init) {
+                    this.x = Math.random() * W;
+                    this.y = init ? Math.random() * H : (Math.random() < 0.5 ? -10 : H + 10);
+                    this.vx = (Math.random() - 0.5) * CONFIG.speed;
+                    this.vy = (Math.random() - 0.5) * CONFIG.speed;
+                    this.r = Math.random() * CONFIG.nodeRadius + 1;
+                    this.alpha = Math.random() * 0.5 + 0.2;
+                    this.pulseSpeed = Math.random() * 0.02 + 0.005;
+                    this.pulseOffset = Math.random() * Math.PI * 2;
+                    this.t = 0;
+                }
+                update() {
+                    this.x += this.vx;
+                    this.y += this.vy;
+                    this.t += this.pulseSpeed;
+                    if (this.x < -20 || this.x > W + 20 || this.y < -20 || this.y > H + 20) {
+                        this.reset(false);
+                    }
+                }
+                draw() {
+                    const pulse = 0.5 + 0.5 * Math.sin(this.t + this.pulseOffset);
+                    const a = this.alpha * (0.6 + 0.4 * pulse);
+                    ctx.beginPath();
+                    ctx.arc(this.x, this.y, this.r * (0.8 + 0.3 * pulse), 0, Math.PI * 2);
+                    ctx.fillStyle = `rgba(225,29,72,${a})`;
+                    ctx.fill();
+
+                    // Glow
+                    const grd = ctx.createRadialGradient(this.x, this.y, 0, this.x, this.y, this.r * 5);
+                    grd.addColorStop(0, `rgba(225,29,72,${a * 0.3})`);
+                    grd.addColorStop(1, 'rgba(225,29,72,0)');
+                    ctx.beginPath();
+                    ctx.arc(this.x, this.y, this.r * 5, 0, Math.PI * 2);
+                    ctx.fillStyle = grd;
+                    ctx.fill();
+                }
+            }
+
+            function drawConnections() {
+                for (let i = 0; i < nodes.length; i++) {
+                    for (let j = i + 1; j < nodes.length; j++) {
+                        const dx = nodes[i].x - nodes[j].x;
+                        const dy = nodes[i].y - nodes[j].y;
+                        const dist = Math.sqrt(dx * dx + dy * dy);
+                        if (dist < CONFIG.maxDist) {
+                            const alpha = (1 - dist / CONFIG.maxDist) * 0.25;
+                            ctx.beginPath();
+                            ctx.moveTo(nodes[i].x, nodes[i].y);
+                            ctx.lineTo(nodes[j].x, nodes[j].y);
+                            ctx.strokeStyle = `rgba(225,29,72,${alpha})`;
+                            ctx.lineWidth = (1 - dist / CONFIG.maxDist) * 1.5;
+                            ctx.stroke();
+                        }
+                    }
+                }
+            }
+
+            function drawDataPackets() {
+                if (Math.random() < 0.03) {
+                    if (nodes.length >= 2) {
+                        const a = nodes[Math.floor(Math.random() * nodes.length)];
+                        const b = nodes[Math.floor(Math.random() * nodes.length)];
+                        if (a !== b) {
+                            animatePacket(a.x, a.y, b.x, b.y);
+                        }
+                    }
+                }
+            }
+
+            const packets = [];
+            function animatePacket(x1, y1, x2, y2) {
+                packets.push({ x1, y1, x2, y2, t: 0 });
+            }
+
+            function drawPackets() {
+                for (let i = packets.length - 1; i >= 0; i--) {
+                    const p = packets[i];
+                    p.t += 0.015;
+                    if (p.t >= 1) { packets.splice(i, 1); continue; }
+                    const x = p.x1 + (p.x2 - p.x1) * p.t;
+                    const y = p.y1 + (p.y2 - p.y1) * p.t;
+                    ctx.beginPath();
+                    ctx.arc(x, y, 2.5, 0, Math.PI * 2);
+                    ctx.fillStyle = `rgba(255,100,130,${1 - p.t})`;
+                    ctx.fill();
+                }
+            }
+
+            function loop() {
+                ctx.clearRect(0, 0, W, H);
+                // Subtle dark overlay for depth
+                ctx.fillStyle = 'rgba(5,0,10,0.08)';
+                ctx.fillRect(0, 0, W, H);
+
+                drawConnections();
+                nodes.forEach(n => { n.update(); n.draw(); });
+                drawDataPackets();
+                drawPackets();
+                RAF = requestAnimationFrame(loop);
+            }
+
+            function init() {
+                resize();
+                nodes = Array.from({ length: CONFIG.nodeCount }, () => new Node());
+                loop();
+            }
+
+            window.addEventListener('resize', () => { resize(); });
+            init();
+
+            // Mouse interaction — attract nodes
+            window.addEventListener('mousemove', e => {
+                nodes.forEach(n => {
+                    const dx = e.clientX - n.x;
+                    const dy = e.clientY - n.y;
+                    const dist = Math.sqrt(dx * dx + dy * dy);
+                    if (dist < 120) {
+                        n.vx += dx * 0.0003;
+                        n.vy += dy * 0.0003;
+                        // Clamp speed
+                        const spd = Math.sqrt(n.vx * n.vx + n.vy * n.vy);
+                        if (spd > CONFIG.speed * 3) {
+                            n.vx = (n.vx / spd) * CONFIG.speed * 3;
+                            n.vy = (n.vy / spd) * CONFIG.speed * 3;
+                        }
+                    }
+                });
+            });
+        })();
+
+        // ════════════════════════════════════════════════
+        // FAQ DATA + RENDER
+        // ════════════════════════════════════════════════
+        const faqData = {
+            general: [
+                { q: "How quickly do you respond to inquiries?", a: "We aim to respond within 1 hour on business days. For urgent queries, feel free to call us directly at +91 9103952006." },
+                { q: "What industries do you work with?", a: "We specialize in Tamil film promotions, radio & FM brands, short-video creator platforms, automotive brands, and general multi-platform digital campaigns." },
+                { q: "Do you offer free strategy consultations?", a: "Yes! We offer a complimentary 30-minute strategy session for new clients. Fill out the form and mention you'd like a consultation." },
+                { q: "Are you available for long-term partnerships?", a: "Absolutely. Most of our best work comes from ongoing partnerships where we deeply understand your brand and audience over time." },
+            ],
+            services: [
+                { q: "What services does AlMity offer?", a: "We offer social media management, content creation (video, blogs, posters), campaign strategy, creator/influencer management, brand promotions, and KPI reporting." },
+                { q: "Can you handle multi-platform campaigns?", a: "Yes — we're experts in running coordinated campaigns across Instagram, YouTube, Facebook, Twitter, Moj, Josh, ShareChat, and more simultaneously." },
+                { q: "Do you create video content?", a: "Yes, we produce promotional videos, reels, and ad creatives in-house. From scripting to editing, we handle the full production pipeline." },
+                { q: "How do you measure campaign success?", a: "We track key KPIs including reach, impressions, engagement rate, click-through rate, and conversions — delivered in clear monthly reports." },
+            ],
+            pricing: [
+                { q: "How is pricing structured?", a: "Pricing depends on the scope — we offer monthly retainer packages, project-based pricing, and custom enterprise deals for large brands." },
+                { q: "Do you have packages for small businesses?", a: "Yes! We have flexible starter packages designed for growing brands and startups. Get in touch to discuss what fits your budget." },
+                { q: "Are there any setup or hidden fees?", a: "No hidden fees. We provide a detailed scope and quote upfront before any work begins, so there are never any surprises." },
+                { q: "What's the minimum engagement period?", a: "We typically work on a minimum 3-month engagement for campaigns to see meaningful results, though project-based work has no minimum." },
+            ]
+        };
+
+        let currentTab = 'general';
+
+        function switchFaqTab(tab) {
+            currentTab = tab;
+            document.querySelectorAll('.faq-tab-btn').forEach(btn => {
+                btn.style.background = '';
+                btn.style.color = '';
+                btn.classList.remove('bg-primary', 'text-white');
+                btn.classList.add('text-white/40');
+            });
+            const active = document.getElementById(`faq-tab-${tab}`);
+            active.style.background = '#E11D48';
+            active.style.color = 'white';
+            active.classList.remove('text-white/40');
+            renderFaq(tab);
+        }
+
+        function renderFaq(tab) {
+            const list = document.getElementById('faq-list');
+            list.innerHTML = '';
+            faqData[tab].forEach((item, i) => {
+                const div = document.createElement('div');
+                div.className = 'faq-item';
+                div.innerHTML = `
+                    <button class="faq-btn" onclick="toggleFaq(this)">
+                        <span>${item.q}</span>
+                        <span class="faq-icon material-symbols-outlined text-[18px]">add</span>
+                    </button>
+                    <div class="faq-body">
+                        <p>${item.a}</p>
+                    </div>
+                `;
+                div.style.opacity = '0';
+                div.style.transform = 'translateY(12px)';
+                list.appendChild(div);
+                setTimeout(() => {
+                    div.style.transition = 'opacity 0.4s ease, transform 0.4s ease';
+                    div.style.opacity = '1';
+                    div.style.transform = 'translateY(0)';
+                }, i * 60);
+            });
+        }
+
+        function toggleFaq(btn) {
+            const item = btn.closest('.faq-item');
+            const body = item.querySelector('.faq-body');
+            const isOpen = item.classList.contains('open');
+            // Close all
+            document.querySelectorAll('.faq-item').forEach(el => {
+                el.classList.remove('open');
+                el.querySelector('.faq-body').classList.remove('open');
+            });
+            if (!isOpen) {
+                item.classList.add('open');
+                body.classList.add('open');
+            }
+        }
+
+        // Init FAQ
+        renderFaq('general');
+
+        // ════════════════════════════════════════════════
+        // FORM SUBMIT
+        // ════════════════════════════════════════════════
+        document.getElementById('contact-form').addEventListener('submit', function (e) {
+            e.preventDefault();
+            const btn = document.getElementById('submit-btn');
+            btn.innerHTML = '<span class="material-symbols-outlined text-[18px] animate-spin">refresh</span> Sending...';
+            btn.disabled = true;
+
+            setTimeout(() => {
+                btn.innerHTML = 'Send Message <span class="material-symbols-outlined text-[18px]">send</span>';
+                btn.disabled = false;
+                this.reset();
+                const toast = document.getElementById('success-toast');
+                toast.classList.add('show');
+                setTimeout(() => toast.classList.remove('show'), 4000);
+            }, 1800);
+        });
+
+        // ════════════════════════════════════════════════
+        // MOBILE MENU
+        // ════════════════════════════════════════════════
+        document.getElementById('menu-btn')?.addEventListener('click', () => {
+            document.getElementById('mobile-menu').classList.remove('translate-x-full');
+        });
+        document.getElementById('close-menu')?.addEventListener('click', () => {
+            document.getElementById('mobile-menu').classList.add('translate-x-full');
+        });
+
+        // ════════════════════════════════════════════════
+        // SCROLL REVEAL
+        // ════════════════════════════════════════════════
+        const revealObs = new IntersectionObserver((entries) => {
+            entries.forEach((entry, i) => {
+                if (entry.isIntersecting) {
+                    const delay = parseFloat(entry.target.style.transitionDelay || '0') * 1000;
+                    setTimeout(() => {
+                        if (entry.target.classList.contains('reveal-left')) {
+                            entry.target.classList.add('revealed-left');
+                        } else {
+                            entry.target.classList.add('revealed');
+                        }
+                    }, delay);
+                    revealObs.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.reveal, .reveal-left').forEach(el => revealObs.observe(el));
+    </script>
+
+    <script src="tubelightNavbar.js"></script>
+  
+</body>
+
+</html>

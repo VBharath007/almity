@@ -1,0 +1,1241 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/png" href="Data/image/Almity_logo_black.png" sizes="192x192" />
+    <title>Portfolio | AlMity – Case Studies & Projects</title>
+
+    <meta property="og:image" content="./Data/image/Almity_logo_white.png" />
+    <meta property="og:title" content="Portfolio | Almity – Case Studies & Projects" />
+   <meta property="og:description" content="Explore Almity's portfolio — real campaigns for Tamil films, radio brands, short-video platforms, and automotive giants." />
+    <script src="https://cdn.tailwindcss.com?plugins=forms,typography"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;700;800;900&display=swap"
+        rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
+        rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" href="colors.css">
+    <link rel="stylesheet" href="style.css">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: { primary: "#C60C30" },
+                    fontFamily: { display: ["Outfit", "sans-serif"], sans: ["Inter", "sans-serif"] },
+                }
+            }
+        };
+    </script>
+
+    <style>
+        body {
+            background: #05000a;
+            color: white;
+            font-family: 'Inter', sans-serif;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        /* Ensure all content appears above background animation */
+        body > * {
+            position: relative;
+            z-index: 2;
+        }
+
+        /* ── PORTFOLIO PAGE BACKGROUND ANIMATION ── */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(ellipse 800px 600px at 20% 30%, rgba(198, 12, 48, 0.08) 0%, transparent 70%),
+                radial-gradient(ellipse 600px 500px at 80% 60%, rgba(0, 61, 102, 0.06) 0%, transparent 70%),
+                radial-gradient(ellipse 400px 400px at 50% 90%, rgba(139, 58, 58, 0.05) 0%, transparent 70%);
+            animation: bgGradientShift 15s ease-in-out infinite;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        /* ── LIGHTNING THUNDER EFFECT ── */
+        body::after {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                linear-gradient(90deg, transparent 0%, rgba(255, 255, 255, 0) 25%, rgba(255, 255, 255, 0.5) 50%, rgba(255, 255, 255, 0) 75%, transparent 100%),
+                radial-gradient(ellipse 150% 100% at 50% 0%, rgba(255, 255, 255, 0.4) 0%, rgba(255, 255, 255, 0.2) 30%, transparent 50%);
+            animation: lightningThunder 8s ease-in-out infinite;
+            pointer-events: none;
+            z-index: 1;
+            mix-blend-mode: screen;
+        }
+
+        @keyframes bgGradientShift {
+            0% {
+                background: 
+                    radial-gradient(ellipse 800px 600px at 20% 30%, rgba(198, 12, 48, 0.08) 0%, transparent 70%),
+                    radial-gradient(ellipse 600px 500px at 80% 60%, rgba(0, 61, 102, 0.06) 0%, transparent 70%),
+                    radial-gradient(ellipse 400px 400px at 50% 90%, rgba(139, 58, 58, 0.05) 0%, transparent 70%);
+            }
+            50% {
+                background: 
+                    radial-gradient(ellipse 800px 600px at 80% 50%, rgba(198, 12, 48, 0.12) 0%, transparent 70%),
+                    radial-gradient(ellipse 600px 500px at 30% 40%, rgba(0, 61, 102, 0.08) 0%, transparent 70%),
+                    radial-gradient(ellipse 400px 400px at 50% 30%, rgba(139, 58, 58, 0.06) 0%, transparent 70%);
+            }
+            100% {
+                background: 
+                    radial-gradient(ellipse 800px 600px at 20% 30%, rgba(198, 12, 48, 0.08) 0%, transparent 70%),
+                    radial-gradient(ellipse 600px 500px at 80% 60%, rgba(0, 61, 102, 0.06) 0%, transparent 70%),
+                    radial-gradient(ellipse 400px 400px at 50% 90%, rgba(139, 58, 58, 0.05) 0%, transparent 70%);
+            }
+        }
+
+        @keyframes lightningThunder {
+            0% {
+                opacity: 0;
+                background: 
+                    linear-gradient(90deg, transparent 0%, rgba(255, 255, 255, 0) 25%, rgba(255, 255, 255, 0) 50%, rgba(255, 255, 255, 0) 75%, transparent 100%),
+                    radial-gradient(ellipse 150% 100% at 50% 0%, rgba(255, 255, 255, 0) 0%, transparent 50%);
+            }
+            15% {
+                opacity: 0;
+            }
+            18% {
+                opacity: 1;
+                background: 
+                    linear-gradient(90deg, transparent 0%, rgba(255, 255, 255, 0.3) 25%, rgba(255, 255, 255, 0.8) 50%, rgba(255, 255, 255, 0.3) 75%, transparent 100%),
+                    radial-gradient(ellipse 150% 100% at 50% 0%, rgba(255, 255, 255, 0.6) 0%, rgba(255, 255, 255, 0.4) 30%, transparent 50%);
+            }
+            20% {
+                opacity: 0.4;
+                background: 
+                    linear-gradient(90deg, transparent 0%, rgba(255, 255, 255, 0.15) 25%, rgba(255, 255, 255, 0.4) 50%, rgba(255, 255, 255, 0.15) 75%, transparent 100%),
+                    radial-gradient(ellipse 150% 100% at 50% 0%, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0.1) 30%, transparent 50%);
+            }
+            22% {
+                opacity: 1;
+                background: 
+                    linear-gradient(90deg, transparent 0%, rgba(255, 255, 255, 0.4) 25%, rgba(255, 255, 255, 1) 50%, rgba(255, 255, 255, 0.4) 75%, transparent 100%),
+                    radial-gradient(ellipse 150% 100% at 50% 0%, rgba(255, 255, 255, 0.7) 0%, rgba(255, 255, 255, 0.5) 30%, transparent 50%);
+            }
+            24% {
+                opacity: 0;
+                background: 
+                    linear-gradient(90deg, transparent 0%, rgba(255, 255, 255, 0) 25%, rgba(255, 255, 255, 0) 50%, rgba(255, 255, 255, 0) 75%, transparent 100%),
+                    radial-gradient(ellipse 150% 100% at 50% 0%, rgba(255, 255, 255, 0) 0%, transparent 50%);
+            }
+            45% {
+                opacity: 0;
+            }
+            48% {
+                opacity: 1;
+                background: 
+                    linear-gradient(90deg, transparent 0%, rgba(255, 255, 255, 0.25) 25%, rgba(255, 255, 255, 0.7) 50%, rgba(255, 255, 255, 0.25) 75%, transparent 100%),
+                    radial-gradient(ellipse 150% 100% at 50% 0%, rgba(255, 255, 255, 0.5) 0%, rgba(255, 255, 255, 0.3) 30%, transparent 50%);
+            }
+            50% {
+                opacity: 0.2;
+                background: 
+                    linear-gradient(90deg, transparent 0%, rgba(255, 255, 255, 0.08) 25%, rgba(255, 255, 255, 0.2) 50%, rgba(255, 255, 255, 0.08) 75%, transparent 100%),
+                    radial-gradient(ellipse 150% 100% at 50% 0%, rgba(255, 255, 255, 0.15) 0%, rgba(255, 255, 255, 0.08) 30%, transparent 50%);
+            }
+            52% {
+                opacity: 0;
+                background: 
+                    linear-gradient(90deg, transparent 0%, rgba(255, 255, 255, 0) 25%, rgba(255, 255, 255, 0) 50%, rgba(255, 255, 255, 0) 75%, transparent 100%),
+                    radial-gradient(ellipse 150% 100% at 50% 0%, rgba(255, 255, 255, 0) 0%, transparent 50%);
+            }
+            100% {
+                opacity: 0;
+                background: 
+                    linear-gradient(90deg, transparent 0%, rgba(255, 255, 255, 0) 25%, rgba(255, 255, 255, 0) 50%, rgba(255, 255, 255, 0) 75%, transparent 100%),
+                    radial-gradient(ellipse 150% 100% at 50% 0%, rgba(255, 255, 255, 0) 0%, transparent 50%);
+            }
+        }
+
+        /* ── NAV ── */
+        .glass-nav {
+            background: rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(14px);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+        }
+
+        /* ── HERO ── */
+        .hero-outline {
+            color: transparent;
+            -webkit-text-stroke: 1.5px rgba(255, 255, 255, 0.15);
+            font-size: clamp(70px, 14vw, 160px);
+            line-height: 0.88;
+            letter-spacing: -0.04em;
+        }
+
+        .hero-gradient-text {
+            background: linear-gradient(135deg, #fff 30%, rgba(198, 12, 48, 0.8) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-bg-glow {
+            background: radial-gradient(ellipse 70% 55% at 50% 0%, rgba(198, 12, 48, 0.18) 0%, transparent 70%);
+            animation: heroGlowPulse 4s ease-in-out infinite;
+        }
+
+        @keyframes heroGlowPulse {
+            0%, 100% {
+                background: radial-gradient(ellipse 70% 55% at 50% 0%, rgba(198, 12, 48, 0.18) 0%, transparent 70%);
+            }
+            50% {
+                background: radial-gradient(ellipse 80% 65% at 50% 0%, rgba(198, 12, 48, 0.25) 0%, transparent 70%);
+            }
+        }
+
+        /* ── STAT PILLS ── */
+        .stat-pill {
+            background: rgba(255, 255, 255, 0.06);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 999px;
+            transition: background 0.3s, border-color 0.3s;
+        }
+
+        .stat-pill:hover {
+            background: rgba(198, 12, 48, 0.12);
+            border-color: rgba(198, 12, 48, 0.4);
+        }
+
+        /* ── FILTER TABS ── */
+        .filter-tab {
+            transition: all 0.3s;
+            border: 1px solid rgba(255, 255, 255, 0.12);
+        }
+
+        .filter-tab.active,
+        .filter-tab:hover {
+            background: #C60C30;
+            border-color: #C60C30;
+            color: white;
+        }
+
+        /* ── CASE STUDY CARDS ── */
+        .cs-card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 2rem;
+            transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1), border-color 0.4s, box-shadow 0.4s;
+            overflow: hidden;
+            position: relative;
+        }
+
+        /* Glass card background shimmer */
+        .cs-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, transparent 30%, rgba(255, 255, 255, 0.15) 50%, transparent 70%);
+            animation: cardShimmer 3s infinite;
+            pointer-events: none;
+        }
+
+        @keyframes cardShimmer {
+            0% {
+                transform: translate(-100%, -100%);
+            }
+            100% {
+                transform: translate(100%, 100%);
+            }
+        }
+
+        .cs-card:hover {
+            transform: translateY(-6px);
+            border-color: rgba(198, 12, 48, 0.35);
+            box-shadow: 
+                0 32px 64px -16px rgba(0, 0, 0, 0.6), 
+                0 0 0 1px rgba(198, 12, 48, 0.15), 
+                0 0 30px rgba(198, 12, 48, 0.2),
+                inset 0 0 30px rgba(255, 255, 255, 0.4),
+                0 0 60px rgba(255, 255, 255, 0.3);
+            backdrop-filter: blur(20px);
+            animation: cardLightningGlow 1.5s ease-in-out infinite;
+        }
+
+        .cs-img-wrap {
+            overflow: hidden;
+            border-radius: 1.25rem;
+        }
+
+        .cs-img-wrap img {
+            transition: transform 1s cubic-bezier(0.4, 0, 0.2, 1);
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .cs-card:hover .cs-img-wrap img {
+            transform: scale(1.08);
+        }
+
+        /* Number badge */
+        .cs-num {
+            font-family: 'Outfit', sans-serif;
+            font-size: 80px;
+            font-weight: 900;
+            color: transparent;
+            -webkit-text-stroke: 1px rgba(225, 29, 72, 0.25);
+            line-height: 1;
+            user-select: none;
+        }
+
+        /* Tag pill */
+        .tag-pill {
+            background: rgba(198, 12, 48, 0.12);
+            border: 1px solid rgba(198, 12, 48, 0.25);
+            color: #fb7185;
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 0.08em;
+            border-radius: 999px;
+            padding: 4px 14px;
+            text-transform: uppercase;
+            display: inline-block;
+        }
+
+        /* Metric boxes */
+        .metric-box {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 1rem;
+            padding: 1.25rem 1.5rem;
+        }
+
+        .metric-box .val {
+            font-family: 'Outfit', sans-serif;
+            font-size: 2rem;
+            font-weight: 900;
+            color: #C60C30;
+            line-height: 1;
+        }
+
+        .metric-box .lbl {
+            font-size: 11px;
+            color: rgba(255, 255, 255, 0.45);
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            margin-top: 4px;
+        }
+
+        /* Bullet list */
+        .cs-bullet {
+            position: relative;
+            padding-left: 1.4rem;
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 0.9rem;
+            line-height: 1.6;
+        }
+
+        .cs-bullet::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0.55em;
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: #C60C30;
+        }
+
+        /* ── DIVIDER ── */
+        .section-divider {
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.08) 30%, rgba(198, 12, 48, 0.2) 50%, rgba(255, 255, 255, 0.08) 70%, transparent);
+            margin: 4rem 0;
+        }
+
+        /* ── CTA BANNER ── */
+        .cta-banner {
+            background: linear-gradient(135deg, rgba(198, 12, 48, 0.18) 0%, rgba(198, 12, 48, 0.05) 60%, transparent 100%);
+            border: 1px solid rgba(198, 12, 48, 0.25);
+            border-radius: 2rem;
+        }
+
+        /* Reveal animation */
+        .reveal {
+            opacity: 0;
+            transform: translateY(40px);
+        }
+
+        .revealed {
+            opacity: 1;
+            transform: translateY(0);
+            transition: opacity 0.8s ease, transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        /* ── GLASS CARD ADVANCED ANIMATIONS ── */
+        
+        /* Glow border animation */
+        @keyframes glowBorder {
+            0%, 100% {
+                box-shadow: 0 0 20px rgba(198, 12, 48, 0.2), inset 0 0 20px rgba(198, 12, 48, 0.05);
+            }
+            50% {
+                box-shadow: 0 0 40px rgba(198, 12, 48, 0.4), inset 0 0 20px rgba(198, 12, 48, 0.1);
+            }
+        }
+
+        .cs-card.active-glow {
+            animation: glowBorder 2s ease-in-out;
+        }
+
+        /* Glass content blur reveal */
+        .cs-card p, .cs-card h3 {
+            animation: contentReveal 0.8s ease-out forwards;
+        }
+
+        @keyframes contentReveal {
+            from {
+                opacity: 0;
+                filter: blur(4px);
+            }
+            to {
+                opacity: 1;
+                filter: blur(0);
+            }
+        }
+
+        /* Card lightning glow on hover */
+        @keyframes cardLightningGlow {
+            0%, 100% {
+                box-shadow: 
+                    0 32px 64px -16px rgba(0, 0, 0, 0.6), 
+                    0 0 0 1px rgba(198, 12, 48, 0.15), 
+                    0 0 30px rgba(198, 12, 48, 0.2),
+                    inset 0 0 0px rgba(255, 255, 255, 0),
+                    0 0 0px rgba(255, 255, 255, 0);
+            }
+            25% {
+                box-shadow: 
+                    0 32px 64px -16px rgba(0, 0, 0, 0.6), 
+                    0 0 0 1px rgba(198, 12, 48, 0.15), 
+                    0 0 30px rgba(198, 12, 48, 0.2),
+                    inset 0 0 30px rgba(255, 255, 255, 0.5),
+                    0 0 60px rgba(255, 255, 255, 0.4);
+            }
+            50% {
+                box-shadow: 
+                    0 32px 64px -16px rgba(0, 0, 0, 0.6), 
+                    0 0 0 1px rgba(198, 12, 48, 0.15), 
+                    0 0 30px rgba(198, 12, 48, 0.2),
+                    inset 0 0 15px rgba(255, 255, 255, 0.2),
+                    0 0 30px rgba(255, 255, 255, 0.15);
+            }
+            75% {
+                box-shadow: 
+                    0 32px 64px -16px rgba(0, 0, 0, 0.6), 
+                    0 0 0 1px rgba(198, 12, 48, 0.15), 
+                    0 0 30px rgba(198, 12, 48, 0.2),
+                    inset 0 0 20px rgba(255, 255, 255, 0.3),
+                    0 0 50px rgba(255, 255, 255, 0.3);
+            }
+        }
+
+        /* Card inner glow on hover */
+        .cs-card:hover::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.25) 0%, transparent 70%);
+            pointer-events: none;
+            border-radius: 2rem;
+            animation: innerGlowPulse 1.5s ease-in-out infinite;
+        }
+
+        @keyframes innerGlowPulse {
+            0%, 100% {
+                opacity: 0;
+            }
+            50% {
+                opacity: 1;
+            }
+        }
+
+        /* Scrollbar */
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #05000a;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #C60C30;
+            border-radius: 3px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- ═══════════════════════════ NAV ═══════════════════════════ -->
+    <header class="fixed top-0 left-0 right-0 z-50 px-6 pt-5">
+        <nav class="max-w-7xl mx-auto glass-nav rounded-full px-8 h-16 flex items-center justify-between">
+            <a href="index.html">
+                <img src="Data/image/Almity_logo_white.png" alt="Almity" class="h-28 object-contain">
+            </a>
+            <div class="hidden lg:flex items-center gap-8 text-sm font-semibold text-white/80">
+                <a href="index.html" class="hover:text-primary transition-colors">Home</a>
+                <a href="portfolio.html" class="text-primary font-bold">Portfolio</a>
+                <a href="about.html" class="hover:text-primary transition-colors">About</a>
+                <a href="contact.html" class="hover:text-primary transition-colors">Contact</a>
+            </div>
+
+            <!-- Mobile menu btn -->
+            <button id="menu-btn" class="lg:hidden text-white">
+                <span class="material-symbols-outlined text-3xl">menu</span>
+            </button>
+
+            <a href="contact.html"
+                class="hidden lg:block bg-primary text-white px-6 py-2.5 rounded-full text-xs font-bold hover:bg-red-700 transition-all shadow-lg">Contact Us</a>
+        </nav>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu"
+            class="lg:hidden fixed top-0 right-0 w-72 h-full bg-black/95 backdrop-blur-2xl translate-x-full transition-transform duration-500 z-[100]">
+            <div class="flex justify-between items-center px-8 py-6 border-b border-white/10">
+                <span class="text-white font-bold text-xl font-display">ALMITY</span>
+                <button id="close-menu" class="text-white hover:text-primary transition-colors">
+                    <span class="material-symbols-outlined text-4xl">close</span>
+                </button>
+            </div>
+            <nav class="flex flex-col gap-8 px-8 py-12 text-xl font-display font-bold text-white/90">
+                <a href="index.html" class="hover:text-primary transition-all">Home</a>
+                <a href="about.html" class="hover:text-primary transition-all">About Us</a>
+                <a href="portfolio.html" class="text-primary">Portfolio</a>
+                <a href="contact.html" class="hover:text-primary transition-all">Contact</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- ═══════════════════════════ HERO ═══════════════════════════ -->
+    <section class="relative min-h-[90vh] flex flex-col justify-center pt-32 pb-20 overflow-hidden">
+        <div class="hero-bg-glow absolute inset-0 pointer-events-none"></div>
+
+        <!-- Animated grid lines -->
+        <div class="absolute inset-0 pointer-events-none"
+            style="background-image: linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px); background-size: 80px 80px;">
+        </div>
+
+        <div class="max-w-7xl mx-auto px-6 w-full relative z-10">
+            <!-- Eyebrow -->
+            <div class="flex items-center gap-3 mb-8">
+                <span class="w-10 h-px bg-primary"></span>
+                <span class="text-primary text-xs font-bold uppercase tracking-[0.2em]">Our Work</span>
+            </div>
+
+            <!-- Headline -->
+            <div class="mb-12">
+                <h1 class="hero-outline font-display font-black uppercase block mb-1">Portfolio</h1>
+                <h2 class="font-display font-black uppercase text-5xl md:text-7xl leading-tight">
+                    <span class="hero-gradient-text">Real Campaigns.</span><br>
+                    <span class="text-white/30 font-light italic text-4xl md:text-5xl">Real Results.</span>
+                </h2>
+            </div>
+
+            <p class="max-w-xl text-white/50 text-lg leading-relaxed mb-14">
+                From Tamil cinema to creator platforms to automotive giants — here are the campaigns that moved the
+                needle.
+            </p>
+
+            <!-- Stats row -->
+            <div class="grid grid-cols-2 md:flex md:flex-wrap gap-2 md:gap-4">
+                <div class="stat-pill px-3 md:px-6 py-2 md:py-3 flex items-center gap-2 md:gap-3">
+                    <span class="text-lg md:text-2xl font-display font-black text-primary">30+</span>
+                    <span class="text-[10px] md:text-xs text-white/50 font-semibold uppercase tracking-wider leading-tight">Tamil
+                        Films<br>Promoted</span>
+                </div>
+                <div class="stat-pill px-3 md:px-6 py-2 md:py-3 flex items-center gap-2 md:gap-3">
+                    <span class="text-lg md:text-2xl font-display font-black text-primary">15K+</span>
+                    <span
+                        class="text-[10px] md:text-xs text-white/50 font-semibold uppercase tracking-wider leading-tight">Creators<br>Managed</span>
+                </div>
+                <div class="stat-pill px-3 md:px-6 py-2 md:py-3 flex items-center gap-2 md:gap-3">
+                    <span class="text-lg md:text-2xl font-display font-black text-primary">5</span>
+                    <span class="text-[10px] md:text-xs text-white/50 font-semibold uppercase tracking-wider leading-tight">Major<br>Brands</span>
+                </div>
+                <div class="stat-pill px-3 md:px-6 py-2 md:py-3 flex items-center gap-2 md:gap-3">
+                    <span class="text-lg md:text-2xl font-display font-black text-primary">Multi</span>
+                    <span
+                        class="text-[10px] md:text-xs text-white/50 font-semibold uppercase tracking-wider leading-tight">Platform<br>Strategy</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════════════════ PROJECTS ═══════════════════════════ -->
+    <main class="max-w-7xl mx-auto px-6 pb-32 space-y-6">
+
+        <!-- ───── 01 · UV COMMUNICATIONS ───── -->
+        <div class="cs-card reveal" id="uv">
+            <div class="p-8 md:p-12">
+                <div class="flex flex-col lg:flex-row gap-10 items-start">
+                    <!-- Image -->
+                    <div class="lg:w-1/2 w-full">
+                        <div class="cs-img-wrap rounded-[1.5rem] h-72 lg:h-[420px] bg-slate-900 relative">
+                            <img src="Data/image/3.PNG" alt="UV Communications Tamil Film Promotions" />
+                            <div
+                                class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent rounded-[1.5rem]">
+                            </div>
+                            <div class="absolute bottom-6 left-6">
+                                <span class="text-xs text-white/60 font-semibold uppercase tracking-widest">UV
+                                    Communications</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Content -->
+                    <div class="lg:w-1/2 flex flex-col justify-between h-full">
+                        <div>
+                            <div class="flex items-start justify-between mb-6">
+                                <span class="tag-pill">Film Promotions</span>
+                                <span class="cs-num">01</span>
+                            </div>
+                            <h3 class="font-display font-bold text-3xl md:text-4xl text-white leading-tight mb-4">
+                                Tamil Film Digital<br>Promotions Campaign
+                            </h3>
+                            <p class="text-white/50 leading-relaxed mb-8">
+                                Led end-to-end digital promotions for <strong class="text-white/80">30+ Tamil
+                                    films</strong> at UV Communications, independently delivering successful movie
+                                campaigns across social platforms.
+                            </p>
+
+                            <!-- Bullets -->
+                            <ul class="space-y-3 mb-8">
+                                <li class="cs-bullet">Designed film posters, memes, and promotional video edits for each
+                                    release</li>
+                                <li class="cs-bullet">Managed official social media pages — scheduling, community
+                                    management, growth</li>
+                                <li class="cs-bullet">Coordinated with influencers and drove audience engagement pre and
+                                    post release</li>
+                                <li class="cs-bullet">Delivered independent campaigns with high-engagement social reach
+                                </li>
+                            </ul>
+                        </div>
+
+                        <!-- Metrics -->
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 md:gap-5">
+                            <div class="metric-box">
+                                <div class="val">30+</div>
+                                <div class="lbl">Films Promoted</div>
+                            </div>
+                            <div class="metric-box">
+                                <div class="val">End‑to‑End</div>
+                                <div class="lbl">Campaign Delivery</div>
+                            </div>
+                            <div class="metric-box">
+                                <div class="val">Multi</div>
+                                <div class="lbl">Platform Reach</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Service tags -->
+                <div class="mt-8 pt-8 border-t border-white/[0.06] flex flex-wrap gap-2">
+                    <span
+                        class="px-3 py-1 rounded-full bg-white/[0.05] border border-white/10 text-white/40 text-xs font-medium">Social
+                        Media Strategy</span>
+                    <span
+                        class="px-3 py-1 rounded-full bg-white/[0.05] border border-white/10 text-white/40 text-xs font-medium">Poster
+                        Design</span>
+                    <span
+                        class="px-3 py-1 rounded-full bg-white/[0.05] border border-white/10 text-white/40 text-xs font-medium">Video
+                        Editing</span>
+                    <span
+                        class="px-3 py-1 rounded-full bg-white/[0.05] border border-white/10 text-white/40 text-xs font-medium">Influencer
+                        Coordination</span>
+                    <span
+                        class="px-3 py-1 rounded-full bg-white/[0.05] border border-white/10 text-white/40 text-xs font-medium">Meme
+                        Marketing</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- ───── 02 · 89.4 TAMIL FM ───── -->
+        <div class="cs-card reveal" id="tamilfm">
+            <div class="p-8 md:p-12">
+                <div class="flex flex-col lg:flex-row-reverse gap-10 items-start">
+                    <!-- Image -->
+                    <div class="lg:w-1/2 w-full">
+                        <div class="cs-img-wrap rounded-[1.5rem] h-72 lg:h-[420px] bg-slate-900 relative">
+                            <img src="Data/image/tamilfm.png" alt="89.4 Tamil FM" />
+                            <div
+                                class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent rounded-[1.5rem]">
+                            </div>
+                            <div class="absolute bottom-6 left-6">
+                                <span class="text-xs text-white/60 font-semibold uppercase tracking-widest">89.4 Tamil
+                                    FM</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Content -->
+                    <div class="lg:w-1/2 flex flex-col justify-between h-full">
+                        <div>
+                            <div class="flex items-start justify-between mb-6">
+                                <span class="tag-pill">Radio & Media</span>
+                                <span class="cs-num">02</span>
+                            </div>
+                            <h3 class="font-display font-bold text-3xl md:text-4xl text-white leading-tight mb-4">
+                                89.4 Tamil FM<br>Digital Promotions
+                            </h3>
+                            <p class="text-white/50 leading-relaxed mb-8">
+                                Managed the official social media handles and web presence for <strong
+                                    class="text-white/80">89.4 Tamil FM</strong>, significantly boosting listener
+                                engagement through creative content and video production.
+                            </p>
+
+                            <ul class="space-y-3 mb-8">
+                                <li class="cs-bullet">Managed official social media accounts & daily content calendar
+                                    for the radio station</li>
+                                <li class="cs-bullet">Designed creative promotional posters aligned with on-air
+                                    programming</li>
+                                <li class="cs-bullet">Edited promotional videos and reels to enhance audience engagement
+                                </li>
+                                <li class="cs-bullet">Maintained web presence, driving significant listener growth
+                                    online</li>
+                            </ul>
+                        </div>
+
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 md:gap-5">
+                            <div class="metric-box">
+                                <div class="val">↑↑</div>
+                                <div class="lbl">Listener Engagement</div>
+                            </div>
+                            <div class="metric-box">
+                                <div class="val">Daily</div>
+                                <div class="lbl">Content Management</div>
+                            </div>
+                            <div class="metric-box">
+                                <div class="val">Multi</div>
+                                <div class="lbl">Format Content</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mt-8 pt-8 border-t border-white/[0.06] flex flex-wrap gap-2">
+                    <span
+                        class="px-3 py-1 rounded-full bg-white/[0.05] border border-white/10 text-white/40 text-xs font-medium">Social
+                        Media Management</span>
+                    <span
+                        class="px-3 py-1 rounded-full bg-white/[0.05] border border-white/10 text-white/40 text-xs font-medium">Poster
+                        Design</span>
+                    <span
+                        class="px-3 py-1 rounded-full bg-white/[0.05] border border-white/10 text-white/40 text-xs font-medium">Video
+                        Editing</span>
+                    <span
+                        class="px-3 py-1 rounded-full bg-white/[0.05] border border-white/10 text-white/40 text-xs font-medium">Web
+                        Presence</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- ───── 03 · MEDIA MANAGEMENT ───── -->
+        <div class="cs-card reveal" id="media">
+            <div class="p-8 md:p-12">
+                <div class="flex flex-col lg:flex-row gap-10 items-start">
+                    <!-- Image -->
+                    <div class="lg:w-1/2 w-full">
+                        <div class="cs-img-wrap rounded-[1.5rem] h-72 lg:h-[420px] bg-slate-900 relative">
+                            <img src="Data/image/Multi-Platform.png" alt="Multi-Platform Media Management" />
+                            <div
+                                class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent rounded-[1.5rem]">
+                            </div>
+                            <div class="absolute bottom-6 left-6">
+                                <span
+                                    class="text-xs text-white/60 font-semibold uppercase tracking-widest">Multi-Platform
+                                    Media</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Content -->
+                    <div class="lg:w-1/2 flex flex-col justify-between h-full">
+                        <div>
+                            <div class="flex items-start justify-between mb-6">
+                                <span class="tag-pill">Digital Marketing</span>
+                                <span class="cs-num">03</span>
+                            </div>
+                            <h3 class="font-display font-bold text-3xl md:text-4xl text-white leading-tight mb-4">
+                                Multi-Platform<br>Media Management
+                            </h3>
+                            <p class="text-white/50 leading-relaxed mb-8">
+                                Executed comprehensive online marketing campaigns across multiple platforms — from
+                                content
+                                creation to performance analysis — strengthening brand presence and audience
+                                relationships.
+                            </p>
+
+                            <!-- Bullets -->
+                            <ul class="space-y-3 mb-8">
+                                <li class="cs-bullet">Managed multi-platform social media accounts</li>
+                                <li class="cs-bullet">Created blogs, posters & promotional creatives</li>
+                                <li class="cs-bullet">Produced video content for marketing campaigns</li>
+                                <li class="cs-bullet">Analyzed campaign performance & prepared reports</li>
+                                <li class="cs-bullet">Audience engagement & community management</li>
+                                <li class="cs-bullet">Strengthened overall brand presence online</li>
+                            </ul>
+                        </div>
+
+                        <!-- Metrics -->
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 md:gap-5">
+                            <div class="metric-box">
+                                <div class="val">Multi</div>
+                                <div class="lbl">Platforms</div>
+                            </div>
+                            <div class="metric-box">
+                                <div class="val">Blog</div>
+                                <div class="lbl">Content Writing</div>
+                            </div>
+                            <div class="metric-box">
+                                <div class="val">KPI</div>
+                                <div class="lbl">Reporting</div>
+                            </div>
+                            <div class="metric-box">
+                                <div class="val">360°</div>
+                                <div class="lbl">Brand Strategy</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mt-8 pt-8 border-t border-white/[0.06] flex flex-wrap gap-2">
+                    <span
+                        class="px-3 py-1 rounded-full bg-white/[0.05] border border-white/10 text-white/40 text-xs font-medium">Campaign
+                        Management</span>
+                    <span
+                        class="px-3 py-1 rounded-full bg-white/[0.05] border border-white/10 text-white/40 text-xs font-medium">Analytics
+                        & Reporting</span>
+                    <span
+                        class="px-3 py-1 rounded-full bg-white/[0.05] border border-white/10 text-white/40 text-xs font-medium">Blog
+                        Writing</span>
+                    <span
+                        class="px-3 py-1 rounded-full bg-white/[0.05] border border-white/10 text-white/40 text-xs font-medium">Creative
+                        Production</span>
+                    <span
+                        class="px-3 py-1 rounded-full bg-white/[0.05] border border-white/10 text-white/40 text-xs font-medium">Community
+                        Management</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- ───── 04 · RIZZLE / JOSH / MOJ / SHARECHAT ───── -->
+        <div class="cs-card reveal" id="creator">
+            <div class="p-8 md:p-12">
+                <div class="flex flex-col lg:flex-row gap-10 items-start">
+                    <!-- Image -->
+                    <div class="lg:w-1/2 w-full">
+                        <div class="cs-img-wrap rounded-[1.5rem] h-72 lg:h-[420px] bg-slate-900 relative">
+                            <img src="Data/image/rizzle.jpg" alt="Creator Management - Rizzle Josh Moj ShareChat" />
+                            <div
+                                class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent rounded-[1.5rem]">
+                            </div>
+                            <!-- Platform badges -->
+                            <div class="absolute top-5 left-5 flex flex-wrap gap-2">
+                                <span
+                                    class="bg-black/50 backdrop-blur text-white text-[10px] font-bold px-3 py-1 rounded-full border border-white/20">Rizzle</span>
+                                <span
+                                    class="bg-black/50 backdrop-blur text-white text-[10px] font-bold px-3 py-1 rounded-full border border-white/20">Josh</span>
+                                <span
+                                    class="bg-black/50 backdrop-blur text-white text-[10px] font-bold px-3 py-1 rounded-full border border-white/20">Moj</span>
+                                <span
+                                    class="bg-black/50 backdrop-blur text-white text-[10px] font-bold px-3 py-1 rounded-full border border-white/20">ShareChat</span>
+                            </div>
+                            <div class="absolute bottom-6 left-6">
+                                <span class="text-xs text-white/60 font-semibold uppercase tracking-widest">South India
+                                    Creator Ecosystem</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Content -->
+                    <div class="lg:w-1/2 flex flex-col justify-between h-full">
+                        <div>
+                            <div class="flex items-start justify-between mb-6">
+                                <span class="tag-pill">Creator Management</span>
+                                <span class="cs-num">04</span>
+                            </div>
+                            <h3 class="font-display font-bold text-3xl md:text-4xl text-white leading-tight mb-4">
+                                South India Creator<br>Strategy & Management
+                            </h3>
+                            <p class="text-white/50 leading-relaxed mb-8">
+                                Managed relationships with <strong class="text-white/80">15,000+ South Indian
+                                    creators</strong> — influencers, dancers, vloggers, and academies — across Rizzle,
+                                Josh, Moj and ShareChat platforms.
+                            </p>
+
+                            <ul class="space-y-3 mb-8">
+                                <li class="cs-bullet">Onboarded new creators & guided platform growth strategies</li>
+                                <li class="cs-bullet">Planned and executed creator campaigns and contests end-to-end
+                                </li>
+                                <li class="cs-bullet">Acted as key liaison between creators and platform teams</li>
+                                <li class="cs-bullet">Improved engagement, retention & creator satisfaction across South
+                                    India</li>
+                            </ul>
+                        </div>
+
+                       <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 md:gap-5">
+                            <div class="metric-box">
+                                <div class="val">15K+</div>
+                                <div class="lbl">Creators Managed</div>
+                            </div>
+                            <div class="metric-box">
+                                <div class="val">4</div>
+                                <div class="lbl">Major Platforms</div>
+                            </div>
+                            <div class="metric-box">
+                                <div class="val">South</div>
+                                <div class="lbl">India Region</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mt-8 pt-8 border-t border-white/[0.06] flex flex-wrap gap-2">
+                    <span
+                        class="px-3 py-1 rounded-full bg-white/[0.05] border border-white/10 text-white/40 text-xs font-medium">Creator
+                        Relations</span>
+                    <span
+                        class="px-3 py-1 rounded-full bg-white/[0.05] border border-white/10 text-white/40 text-xs font-medium">Campaign
+                        Execution</span>
+                    <span
+                        class="px-3 py-1 rounded-full bg-white/[0.05] border border-white/10 text-white/40 text-xs font-medium">Influencer
+                        Onboarding</span>
+                    <span
+                        class="px-3 py-1 rounded-full bg-white/[0.05] border border-white/10 text-white/40 text-xs font-medium">Platform
+                        Strategy</span>
+                    <span
+                        class="px-3 py-1 rounded-full bg-white/[0.05] border border-white/10 text-white/40 text-xs font-medium">Engagement
+                        & Retention</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- ───── 05 · CRE8R MEDIA / TATA MOTORS ───── -->
+        <div class="cs-card reveal" id="tatamotors">
+            <div class="p-8 md:p-12">
+                <div class="flex flex-col lg:flex-row-reverse gap-10 items-start">
+                    <!-- Image -->
+                    <div class="lg:w-1/2 w-full">
+                        <div class="cs-img-wrap rounded-[1.5rem] h-72 lg:h-[420px] bg-slate-900 relative">
+                            <img src="Data/image/about image siraj and arun.png"
+                                alt="Cre8r Media Tata Motors Campaign" />
+                            <div
+                                class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent rounded-[1.5rem]">
+                            </div>
+                            <div class="absolute top-5 right-5">
+                                <span
+                                    class="bg-primary/90 backdrop-blur text-white text-[10px] font-bold px-3 py-1 rounded-full">Strategist</span>
+                            </div>
+                            <div class="absolute bottom-6 left-6">
+                                <span class="text-xs text-white/60 font-semibold uppercase tracking-widest">Cre8r Media
+                                    × Tata Motors</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Content -->
+                    <div class="lg:w-1/2 flex flex-col justify-between h-full">
+                        <div>
+                            <div class="flex items-start justify-between mb-6">
+                                <span class="tag-pill">Brand Strategy</span>
+                                <span class="cs-num">05</span>
+                            </div>
+                            <h3 class="font-display font-bold text-3xl md:text-4xl text-white leading-tight mb-4">
+                                Cre8r Media ×<br>Tata Motors Campaigns
+                            </h3>
+                            <p class="text-white/50 leading-relaxed mb-8">
+                                Worked as <strong class="text-white/80">Strategist at Cre8r Media</strong> for Tata
+                                Motors, leading South Indian creator strategy and large-scale campaign execution across
+                                multiple platforms for vehicle launches.
+                            </p>
+
+                            <ul class="space-y-3 mb-8">
+                                <li class="cs-bullet">Led South Indian creator strategy for Tata Motors vehicle
+                                    campaigns</li>
+                                <li class="cs-bullet">Conceptualized carousel & influencer campaigns across platforms
+                                </li>
+                                <li class="cs-bullet">Built and nurtured a strong, loyal creator ecosystem for the brand
+                                </li>
+                                <li class="cs-bullet">Coordinated on-ground activations to onboard new South creators
+                                </li>
+                                <li class="cs-bullet">Delivered multiple large-scale campaigns with high engagement &
+                                    brand impact</li>
+                            </ul>
+                        </div>
+
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 md:gap-5">
+                            <div class="metric-box">
+                                <div class="val">Large</div>
+                                <div class="lbl">Scale Campaigns</div>
+                            </div>
+                            <div class="metric-box">
+                                <div class="val">On‑Ground</div>
+                                <div class="lbl">Activations</div>
+                            </div>
+                            <div class="metric-box">
+                                <div class="val">High</div>
+                                <div class="lbl">Brand Impact</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mt-8 pt-8 border-t border-white/[0.06] flex flex-wrap gap-2">
+                    <span
+                        class="px-3 py-1 rounded-full bg-white/[0.05] border border-white/10 text-white/40 text-xs font-medium">Brand
+                        Strategy</span>
+                    <span
+                        class="px-3 py-1 rounded-full bg-white/[0.05] border border-white/10 text-white/40 text-xs font-medium">Influencer
+                        Campaigns</span>
+                    <span
+                        class="px-3 py-1 rounded-full bg-white/[0.05] border border-white/10 text-white/40 text-xs font-medium">Creator
+                        Ecosystem</span>
+                    <span
+                        class="px-3 py-1 rounded-full bg-white/[0.05] border border-white/10 text-white/40 text-xs font-medium">On-Ground
+                        Activation</span>
+                    <span
+                        class="px-3 py-1 rounded-full bg-white/[0.05] border border-white/10 text-white/40 text-xs font-medium">Automotive
+                        Marketing</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- ───── CTA BANNER ───── -->
+        <div class="cta-banner p-12 md:p-16 text-center reveal mt-10">
+            <p class="text-primary text-xs font-bold uppercase tracking-[0.2em] mb-4">Let's Create Together</p>
+            <h3 class="font-display font-black text-4xl md:text-6xl text-white mb-6 leading-tight">
+                Ready to build your<br><span class="text-primary">next big campaign?</span>
+            </h3>
+            <p class="text-white/40 max-w-md mx-auto mb-10">We bring strategy, creativity, and execution to the table.
+                Let's turn your brand's vision into real results.</p>
+            <a href="contact.html"
+                class="inline-flex items-center gap-3 bg-primary text-white px-10 py-5 rounded-full font-bold text-sm uppercase tracking-widest hover:bg-red-700 transition-all shadow-2xl group">
+                Start a Project
+                <span
+                    class="w-8 h-8 bg-white/20 rounded-full flex items-center justify-center group-hover:rotate-45 transition-transform">
+                    <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+                </span>
+            </a>
+        </div>
+
+    </main>
+
+    <!-- ═══════════════════════════ FOOTER ═══════════════════════════ -->
+    <footer class="bg-slate-900 text-white py-12">
+        <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-6">
+            <img src="Data/image/Almity_logo_white.png" alt="Almity" class="h-28 object-contain">
+            <p class="text-slate-500 text-sm">© 2026 AlMity Digital Marketing. All rights reserved.</p>
+             <p class="text-slate-500 text-sm">© 2026 Developed by HexaVision Technologies.</p>
+            <div class="flex gap-6 text-sm text-slate-400">
+                <a href="index.html" class="hover:text-primary transition-colors">Home</a>
+                <a href="index.html#services-area" class="hover:text-primary transition-colors">Services</a>
+                <a href="contact.html" class="hover:text-primary transition-colors">Contact</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // ═══════════════════════════════════════════════════════════════
+        // MOBILE MENU TOGGLE
+        // ═══════════════════════════════════════════════════════════════
+        const menuBtn = document.getElementById('menu-btn');
+        const closeBtn = document.getElementById('close-menu');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        if (menuBtn && closeBtn && mobileMenu) {
+            menuBtn.addEventListener('click', () => {
+                mobileMenu.classList.remove('translate-x-full');
+            });
+
+            closeBtn.addEventListener('click', () => {
+                mobileMenu.classList.add('translate-x-full');
+            });
+
+            // Close menu when a link is clicked
+            mobileMenu.querySelectorAll('a').forEach(link => {
+                link.addEventListener('click', () => {
+                    mobileMenu.classList.add('translate-x-full');
+                });
+            });
+        }
+
+        // ═══════════════════════════════════════════════════════════════
+        // PORTFOLIO-EXCLUSIVE ANIMATIONS & EFFECTS
+        // ═══════════════════════════════════════════════════════════════
+
+        // 1. SCROLL REVEAL ANIMATION
+        const reveals = document.querySelectorAll('.reveal');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry, i) => {
+                if (entry.isIntersecting) {
+                    setTimeout(() => entry.target.classList.add('revealed'), i * 80);
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.1 });
+        reveals.forEach(el => observer.observe(el));
+
+        // 2. GLASS CARD INTERACTIVE ANIMATIONS
+        document.querySelectorAll('.cs-card').forEach((card) => {
+            // Add hover glow effect
+            card.addEventListener('mouseenter', () => {
+                card.classList.add('active-glow');
+                // Add subtle particle effect on hover (optional)
+                card.style.backdropFilter = 'blur(25px)';
+            });
+
+            card.addEventListener('mouseleave', () => {
+                card.classList.remove('active-glow');
+                card.style.backdropFilter = 'blur(10px)';
+            });
+
+            // Trigger parallax on mouse move
+            card.addEventListener('mousemove', (e) => {
+                const rect = card.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+
+                const centerX = rect.width / 2;
+                const centerY = rect.height / 2;
+
+                const rotateX = (y - centerY) * 0.05;
+                const rotateY = (centerX - x) * 0.05;
+
+                card.style.transform = `
+                    perspective(1000px)
+                    rotateX(${rotateX}deg)
+                    rotateY(${rotateY}deg)
+                    translateY(-6px)
+                `;
+            });
+
+            card.addEventListener('mouseleave', () => {
+                card.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) translateY(0)';
+            });
+        });
+
+        // 3. MOUSE FOLLOW GLOW EFFECT ON PORTFOLIO
+        document.addEventListener('mousemove', (e) => {
+            const cards = document.querySelectorAll('.cs-card');
+            cards.forEach((card) => {
+                const rect = card.getBoundingClientRect();
+                const cardCenterX = rect.left + rect.width / 2;
+                const cardCenterY = rect.top + rect.height / 2;
+
+                const distance = Math.sqrt(
+                    Math.pow(e.clientX - cardCenterX, 2) + Math.pow(e.clientY - cardCenterY, 2)
+                );
+
+                // If mouse is within 300px of card, add subtle glow
+                if (distance < 300) {
+                    const intensity = (1 - distance / 300) * 0.3;
+                    card.style.boxShadow = `
+                        0 32px 64px -16px rgba(0, 0, 0, 0.6),
+                        0 0 0 1px rgba(198, 12, 48, 0.15),
+                        0 0 ${40 + intensity * 40}px rgba(198, 12, 48, ${0.2 + intensity * 0.3})
+                    `;
+                }
+            });
+        });
+
+        // 4. STAT PILL ANIMATION ON SCROLL
+        const statPills = document.querySelectorAll('.stat-pill');
+        statPills.forEach((pill) => {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.animation = 'fadeInUp 0.6s ease-out forwards';
+                    }
+                });
+            });
+            observer.observe(pill);
+        });
+
+        // 5. HERO GRADIENT ANIMATION
+        const heroGradient = document.querySelector('.hero-gradient-text');
+        if (heroGradient) {
+            let angle = 0;
+            setInterval(() => {
+                angle = (angle + 0.5) % 360;
+                heroGradient.style.backgroundImage = `linear-gradient(${angle}deg, #fff 30%, rgba(198, 12, 48, 0.8) 100%)`;
+            }, 50);
+        }
+
+        // 6. ADD FADE-IN-UP KEYFRAME FOR STATS
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes fadeInUp {
+                from {
+                    opacity: 0;
+                    transform: translateY(30px);
+                }
+                to {
+                    opacity: 1;
+                    transform: translateY(0);
+                }
+            }
+
+            @keyframes float {
+                0%, 100% { transform: translateY(0px); }
+                50% { transform: translateY(-20px); }
+            }
+
+            .stat-pill {
+                animation: float 3s ease-in-out infinite;
+            }
+
+            .stat-pill:nth-child(1) { animation-delay: 0s; }
+            .stat-pill:nth-child(2) { animation-delay: 0.5s; }
+            .stat-pill:nth-child(3) { animation-delay: 1s; }
+            .stat-pill:nth-child(4) { animation-delay: 1.5s; }
+        `;
+        document.head.appendChild(style);
+
+        // 7. TEXT APPEARS ON CARD SCROLL
+        const contentTexts = document.querySelectorAll('.cs-card h3, .cs-card p');
+        contentTexts.forEach((text) => {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.animation = 'contentReveal 0.8s ease-out forwards';
+                    }
+                });
+            });
+            observer.observe(text);
+        });
+    </script>
+
+    <script src="tubelightNavbar.js"></script>
+    
+</body>
+
+</html>

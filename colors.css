@@ -1,0 +1,524 @@
+/**
+ * AlMity Digital Marketing - Delta Airways Enterprise Color System
+ * Corporate Professional Aesthetic with Enterprise Authority
+ * Fortune 500 Brand Inspired Design Standards
+ */
+
+:root {
+  /* ====== PRIMARY BRAND COLORS (Delta Airways Inspired) ====== */
+  /* Corporate Red: Powerful, authoritative, prestigious */
+  --primary: #C60C30;              /* Delta Bold Red - Power, Authority */
+  --primary-dark: #A20828;         /* Darker red for hover/press */
+  --primary-light: #E63246;        /* Lighter red for accents */
+  --primary-ultra-light: rgba(198, 12, 48, 0.1);  /* Red tint background */
+  
+  /* ====== SECONDARY COLORS (Navy Blue - Enterprise Professional) ====== */
+  /* Navy Blue: Trust, corporate stability, professionalism */
+  --secondary: #003D66;            /* Deep Navy - Corporate trust */
+  --secondary-dark: #001F40;       /* Darker navy for hover/active */
+  --secondary-light: #0052A3;      /* Lighter navy for accents */
+  --secondary-ultra-light: rgba(0, 61, 102, 0.1);  /* Navy tint background */
+  
+  /* ====== ACCENT COLORS (Sophisticated Enterprise) ====== */
+  /* Burgundy: Premium, heritage, sophisticated */
+  --accent-burgundy: #8B3A3A;
+  --accent-burgundy-dark: #6B2626;
+  --accent-burgundy-light: #A84C4C;
+  
+  /* Silver/Platinum: Modern, premium, metallic */
+  --accent-silver: #B0B8C1;
+  --accent-silver-dark: #8E96A0;
+  --accent-silver-light: #D0D8E0;
+  
+  /* Forest Green: Stability, growth, environmental responsibility */
+  --accent-green: #1B4332;
+  --accent-green-dark: #081B15;
+  --accent-green-light: #2D6A4F;
+  
+  /* ====== NEUTRALS (Corporate Theme) ====== */
+  /* Background: Premium dark gray, not pure black */
+  --bg-darkest: #0A0E14;          /* Premium dark page background */
+  --bg-dark: #141B27;             /* Corporate dark cards */
+  --bg-medium: #1F2937;           /* Hover backgrounds */
+  --bg-light: #2D3748;            /* Lighter corporate backgrounds */
+  --bg-white: #FFFFFF;            /* Pure white for contrast */
+  
+  /* ====== TEXT COLORS (Corporate Readability) ====== */
+  --text-primary: #FFFFFF;           /* Main text - 100% white */
+  --text-secondary: #E5E7EB;         /* Secondary text - light gray */
+  --text-tertiary: #D1D5DB;          /* Tertiary text - medium gray */
+  --text-muted: #9CA3AF;             /* Muted text - disabled, hints */
+  --text-disabled: #6B7280;          /* Disabled state */
+  
+  /* ====== GRADIENT COLORS (Enterprise Sophistication) ====== */
+  /* Elegant corporate gradients */
+  --gradient-primary: linear-gradient(135deg, #C60C30, #A20828);
+  --gradient-corporate: linear-gradient(135deg, #C60C30, #003D66);
+  --gradient-vibrant: linear-gradient(135deg, #C60C30, #003D66);
+  --gradient-premium: linear-gradient(135deg, #8B3A3A, #003D66);
+  --gradient-authority: linear-gradient(135deg, #003D66, #1B4332);
+  
+  /* ====== SEMANTIC COLORS (Professional Standards) ====== */
+  --success: #2D6A4F;        /* Forest Green - Stable success */
+  --warning: #D97706;        /* Professional amber */
+  --error: #C60C30;          /* Corporate red - Errors */
+  --info: #0052A3;           /* Navy blue - Information */
+  
+  /* ====== OPACITY LAYERS ====== */
+  --overlay-10: rgba(0, 0, 0, 0.1);
+  --overlay-20: rgba(0, 0, 0, 0.2);
+  --overlay-30: rgba(0, 0, 0, 0.3);
+  --overlay-50: rgba(0, 0, 0, 0.5);
+  --overlay-80: rgba(0, 0, 0, 0.8);
+  
+  /* ====== BORDER COLORS (Enterprise Grade) ====== */
+  --border-primary: rgba(198, 12, 48, 0.3);     /* Corporate red borders */
+  --border-secondary: rgba(0, 61, 102, 0.3);    /* Navy borders */
+  --border-light: rgba(255, 255, 255, 0.1);     /* Subtle light borders */
+  --border-medium: rgba(255, 255, 255, 0.15);   /* Standard borders */
+  --border-gold: rgba(176, 184, 193, 0.2);      /* Silver borders */
+  
+  /* ====== SHADOW COLORS (Sophisticated Depth) ====== */
+  --shadow-red: 0 0 20px rgba(198, 12, 48, 0.25);
+  --shadow-navy: 0 0 20px rgba(0, 61, 102, 0.2);
+  --shadow-premium: 0 0 30px rgba(139, 58, 58, 0.15);
+  --shadow-gold: 0 0 15px rgba(176, 184, 193, 0.1);
+}
+
+/* ====== ENTERPRISE COLOR APPLICATION ====== */
+
+/* PRIMARY BRAND COLOR - Corporate Red (#C60C30) */
+/* Psychology: Authority, Power, Premium, Prestige */
+/* Usage: CTAs, Key emphasis, Executive presence */
+.btn-primary,
+.btn-cta {
+  background-color: var(--primary);
+  color: white;
+  transition: background-color 0.3s ease;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+.btn-primary:hover {
+  background-color: var(--primary-dark);
+  box-shadow: var(--shadow-red);
+}
+
+.text-primary,
+.heading-primary {
+  color: var(--primary);
+}
+
+.border-primary {
+  border-color: var(--primary);
+}
+
+.bg-primary-light {
+  background-color: var(--primary-ultra-light);
+}
+
+/* SECONDARY BRAND COLOR - Navy Blue (#003D66) */
+/* Psychology: Trust, Authority, Stability, Corporate */
+/* Usage: Secondary CTAs, Professional elements, Sections */
+.btn-secondary,
+.btn-secondary-action {
+  background-color: var(--secondary);
+  color: white;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  transition: all 0.3s ease;
+  border: 1px solid var(--secondary);
+}
+
+.btn-secondary:hover {
+  background-color: var(--secondary-light);
+  box-shadow: var(--shadow-navy);
+}
+
+.accent-navy,
+.highlight-navy {
+  color: var(--secondary);
+}
+
+.border-secondary {
+  border-color: var(--secondary);
+}
+
+/* ACCENT COLORS (Enterprise Premium) */
+
+/* Burgundy - Heritage & Sophistication */
+.accent-burgundy {
+  color: var(--accent-burgundy);
+}
+
+.btn-burgundy {
+  background-color: var(--accent-burgundy);
+  color: white;
+  font-weight: 600;
+}
+
+.btn-burgundy:hover {
+  background-color: var(--accent-burgundy-dark);
+}
+
+/* Silver - Premium & Grace */
+.accent-silver {
+  color: var(--accent-silver);
+}
+
+.btn-silver {
+  background-color: var(--accent-silver);
+  color: #05000A;
+  font-weight: 600;
+  border: 1px solid var(--accent-silver-dark);
+}
+
+.btn-silver:hover {
+  background-color: var(--accent-silver-dark);
+  box-shadow: var(--shadow-premium);
+}
+
+/* Forest Green - Growth & Stability */
+.accent-green {
+  color: var(--accent-green);
+}
+
+.accent-green-dark {
+  color: var(--accent-green-dark);
+}
+
+.btn-green {
+  background-color: var(--accent-green);
+  color: white;
+  font-weight: 600;
+}
+
+.btn-green:hover {
+  background-color: var(--accent-green-dark);
+  box-shadow: var(--shadow-success);
+}
+
+/* ====== SEMANTIC COLORS ====== */
+
+.text-success {
+  color: var(--success);
+}
+
+.text-warning {
+  color: var(--warning);
+}
+
+.text-error {
+  color: var(--error);
+}
+
+.text-info {
+  color: var(--info);
+}
+
+.bg-success {
+  background-color: rgba(16, 185, 129, 0.1);
+}
+
+.bg-error {
+  background-color: rgba(239, 68, 68, 0.1);
+}
+
+/* ====== TEXT COLOR HIERARCHY ====== */
+
+.text-primary-white {
+  color: var(--text-primary);
+}
+
+.text-secondary-light {
+  color: var(--text-secondary);
+}
+
+.text-tertiary {
+  color: var(--text-tertiary);
+}
+
+.text-muted {
+  color: var(--text-muted);
+}
+
+.text-disabled {
+  color: var(--text-disabled);
+  pointer-events: none;
+  opacity: 0.5;
+}
+
+/* ====== GRADIENT APPLICATIONS ====== */
+
+.gradient-primary {
+  background: var(--gradient-primary);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.gradient-vibrant {
+  background: var(--gradient-vibrant);
+}
+
+.gradient-creative {
+  background: var(--gradient-creative);
+}
+
+.gradient-text-vibrant {
+  background: var(--gradient-vibrant);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* ====== CARD & CONTAINER COLORS ====== */
+
+.card {
+  background-color: var(--bg-dark);
+  border: 1px solid var(--border-light);
+  border-radius: 1rem;
+  transition: all 0.3s ease;
+}
+
+.card:hover {
+  border-color: var(--border-secondary);
+  background-color: var(--bg-medium);
+  box-shadow: var(--shadow-navy);
+}
+
+.card-primary {
+  background-color: var(--primary-ultra-light);
+  border: 1px solid var(--border-primary);
+}
+
+.card-secondary {
+  background-color: var(--secondary-ultra-light);
+  border: 1px solid var(--border-secondary);
+}
+
+/* ====== GLASS-MORPHISM WITH COLOR THEORY ====== */
+
+.glass {
+  background: rgba(15, 23, 42, 0.7);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.glass-primary {
+  background: rgba(198, 12, 48, 0.05);
+  backdrop-filter: blur(10px);
+  border: 1px solid var(--border-primary);
+}
+
+.glass-secondary {
+  background: rgba(0, 61, 102, 0.05);
+  backdrop-filter: blur(10px);
+  border: 1px solid var(--border-secondary);
+}
+
+/* ====== HOVER & INTERACTIVE STATES ====== */
+
+.hover-lift:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 15px 40px rgba(198, 12, 48, 0.15);
+}
+
+.hover-glow-red:hover {
+  box-shadow: var(--shadow-red), 0 0 40px rgba(198, 12, 48, 0.2);
+}
+
+.hover-glow-navy:hover {
+  box-shadow: var(--shadow-navy), 0 0 40px rgba(0, 61, 102, 0.15);
+}
+
+.hover-color-shift:hover {
+  color: var(--secondary);
+  transition: color 0.3s ease;
+}
+
+/* ====== INPUT & FORM COLORS ====== */
+
+input,
+textarea,
+select {
+  background-color: var(--bg-medium);
+  border: 1px solid var(--border-light);
+  color: var(--text-primary);
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+  border-color: var(--secondary);
+  box-shadow: 0 0 0 3px var(--secondary-ultra-light);
+  outline: none;
+}
+
+input::placeholder {
+  color: var(--text-muted);
+}
+
+/* ====== LINK COLORS ====== */
+
+a {
+  color: var(--secondary);
+  transition: color 0.2s ease;
+}
+
+a:hover {
+  color: var(--secondary-light);
+}
+
+a.link-primary {
+  color: var(--primary);
+}
+
+a.link-primary:hover {
+  color: var(--primary-light);
+}
+
+/* ====== BADGE & TAG COLORS ====== */
+
+.badge {
+  display: inline-block;
+  padding: 0.25rem 0.75rem;
+  border-radius: 9999px;
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+.badge-primary {
+  background-color: var(--primary-ultra-light);
+  color: var(--primary);
+  border: 1px solid var(--border-primary);
+}
+
+.badge-secondary {
+  background-color: var(--secondary-ultra-light);
+  color: var(--secondary);
+  border: 1px solid var(--border-secondary);
+}
+
+.badge-success {
+  background-color: rgba(16, 185, 129, 0.1);
+  color: var(--success);
+}
+
+/* ====== ANIMATION & TRANSITION COLORS ====== */
+
+@keyframes color-pulse {
+  0%, 100% {
+    color: var(--text-primary);
+  }
+  50% {
+    color: var(--primary);
+  }
+}
+
+@keyframes glow-red {
+  0%, 100% {
+    box-shadow: 0 0 10px rgba(198, 12, 48, 0.5);
+  }
+  50% {
+    box-shadow: 0 0 20px rgba(198, 12, 48, 1);
+  }
+}
+
+@keyframes glow-navy {
+  0%, 100% {
+    box-shadow: 0 0 10px rgba(0, 61, 102, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 20px rgba(0, 61, 102, 0.6);
+  }
+}
+
+.animate-pulse-primary {
+  animation: color-pulse 2s ease-in-out infinite;
+}
+
+.animate-glow-red {
+  animation: glow-red 2s ease-in-out infinite;
+}
+
+.animate-glow-navy {
+  animation: glow-navy 2s ease-in-out infinite;
+}
+
+/* ====== SCROLLBAR COLORS ====== */
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-dark);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--primary);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--primary-dark);
+}
+
+/* ====== DARK MODE OPTIMIZATIONS ====== */
+
+@media (prefers-color-scheme: dark) {
+  body {
+    background-color: var(--bg-darkest);
+    color: var(--text-primary);
+  }
+}
+
+/* ====== CODE HIGHLIGHTING COLORS ====== */
+
+code {
+  background-color: var(--bg-medium);
+  color: var(--secondary);
+  padding: 0.2rem 0.4rem;
+  border-radius: 0.25rem;
+  font-family: 'Monaco', 'Courier New', monospace;
+}
+
+pre {
+  background-color: var(--bg-dark);
+  border: 1px solid var(--border-light);
+  color: var(--text-primary);
+  overflow-x: auto;
+}
+
+/* ====== UTILITY CLASSES ====== */
+
+.color-primary { color: var(--primary); }
+.color-secondary { color: var(--secondary); }
+.color-burgundy { color: var(--accent-burgundy); }
+.color-silver { color: var(--accent-silver); }
+.color-green { color: var(--accent-green); }
+
+.bg-primary { background-color: var(--primary); }
+.bg-secondary { background-color: var(--secondary); }
+.bg-burgundy { background-color: var(--accent-burgundy); }
+.bg-silver { background-color: var(--accent-silver); }
+.bg-green { background-color: var(--accent-green); }
+
+.border-1-primary { border: 1px solid var(--primary); }
+.border-1-secondary { border: 1px solid var(--secondary); }
+.border-1-light { border: 1px solid var(--border-light); }
+
+.shadow-red { box-shadow: var(--shadow-red); }
+.shadow-navy { box-shadow: var(--shadow-navy); }
+.shadow-burgundy { box-shadow: var(--shadow-premium); }
+
+/* ====== RESPONSIVE COLOR ADJUSTMENTS ====== */
+
+@media (max-width: 768px) {
+  :root {
+    /* Slightly reduce opacity on mobile for better readability */
+    --primary-ultra-light: rgba(198, 12, 48, 0.15);
+    --secondary-ultra-light: rgba(0, 61, 102, 0.15);
+  }
+}

@@ -1,0 +1,708 @@
+<!DOCTYPE html>
+<html class="scroll-smooth" lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+   <link rel="icon" type="image/png" href="Data/image/Almity_logo_black.png" sizes="192x192" />
+    <title>AlMity | Digital Marketing - That Inspires</title>
+
+    <script src="https://cdn.tailwindcss.com?plugins=forms,typography,container-queries"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.19/bundled/lenis.min.js"></script>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;700;800&display=swap"
+        rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
+        rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" href="colors.css">
+    <link rel="stylesheet" href="style.css">
+
+
+    <script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: { primary: "#E11D48", "background-light": "#FFFFFF", "background-dark": "#0F172A" },
+                    fontFamily: { display: ["Outfit", "sans-serif"], sans: ["Inter", "sans-serif"] },
+                    borderRadius: { DEFAULT: "0.75rem" },
+                },
+            },
+        };
+    </script>
+</head>
+
+<body class="bg-[#05000a] text-slate-800 transition-colors duration-300">
+    <canvas id="galaxy-canvas" class="fixed top-0 left-0 w-full h-full -z-10 pointer-events-none"></canvas>
+
+    <header class="absolute top-6 left-0 right-0 z-50 px-6">
+        <nav class="max-w-7xl mx-auto h-16 flex items-center justify-between px-6">
+            <div class="flex items-center gap-2">
+                <a href="index.html">
+                    <img src="Data/image/Almity_logo_white.png" alt="AlMity Logo" class="logo w-36 h-36 object-contain">
+                </a>
+            </div>
+
+            <div
+                class="nav-home hidden lg:flex items-center justify-center glass-nav rounded-full px-8 py-3 gap-8 text-sm font-semibold text-white/90 shadow-xl border border-white/10">
+                <a class="relative group hover:text-primary transition-colors" href="#home">Home</a>
+                <a class="relative group hover:text-primary transition-colors" href="#about">About</a>
+                <a class="relative group hover:text-primary transition-colors" href="#services-area">Services</a>
+                <a class="relative group hover:text-primary transition-colors" href="#awards">Awards</a>
+                <a class="relative group hover:text-primary transition-colors" href="#portfolio">Portfolio</a>
+                <a class="relative group hover:text-primary transition-colors" href="#experience-section">Experience</a>
+                <a class="relative group hover:text-primary transition-colors" href="#blog-section">Blog</a>
+            </div>
+
+            <div class="flex items-center gap-4">
+                <button
+                    class="nav-contact bg-black text-white px-5 py-2 rounded-full text-xs font-bold hover:bg-red-600 transition-all"
+                    onclick="window.location.href='contact.html'">Contact Us</button>
+                <button id="menu-btn" class="lg:hidden text-white"><span
+                        class="material-symbols-outlined text-3xl">menu</span></button>
+            </div>
+
+            <div id="mobile-menu"
+                class="lg:hidden fixed top-0 right-0 w-full sm:w-80 h-full bg-black/95 backdrop-blur-2xl translate-x-full transition-transform duration-500 z-[100] shadow-2xl">
+                <div class="flex justify-between items-center px-8 py-6 border-b border-white/10">
+                    <span class="text-white font-bold text-xl tracking-tighter">ALMITY</span>
+                    <button id="close-menu" class="text-white hover:text-primary transition-colors">
+                        <span class="material-symbols-outlined text-4xl">close</span>
+                    </button>
+                </div>
+
+                <nav class="flex flex-col gap-8 px-8 py-12 text-2xl font-display font-bold text-white/90">
+                    <a href="#home" class="hover:text-primary transition-all">Home</a>
+                    <a href="#about" class="hover:text-primary transition-all">About Us</a>
+                    <a href="#services-area" class="hover:text-primary transition-all">Services</a>
+                    <a href="#awards" class="hover:text-primary transition-all">Awards</a>
+                    <a href="#portfolio" class="hover:text-primary transition-all">Portfolio</a>
+                    <a href="#experience-section" class="hover:text-primary transition-all">Experience</a>
+                    <a href="#blog-section" class="hover:text-primary transition-all">Blog</a>
+
+                    <button onclick="window.location.href='contact.html'"
+                        class="mt-4 bg-primary text-white py-4 rounded-full text-lg hover:bg-white hover:text-primary transition-all duration-300">
+                        Contact Us
+                    </button>
+                </nav>
+            </div>
+
+
+        </nav>
+    </header>
+
+
+
+    <section class="relative min-h-[50vh] lg:min-h-[100vh] flex items-center overflow-hidden" id="home">
+        <div class="absolute inset-0 z-0">
+            <video autoplay loop muted playsinline preload="metadata" class="w-full h-full object-cover">
+                <source src="Data/video/almity_frontvideo2.mp4" type="video/mp4">
+            </video>
+            <div class="absolute inset-0 bg-black/30"></div>
+        </div>
+        <div class="relative z-10 max-w-7xl mx-auto px-6 w-full pt-32">
+            <div class="max-w-xl mb-20 hero-text">
+                <p class="text-white/80 text-lg leading-relaxed mb-8">We design powerful, data-driven campaigns that
+                    elevate your brand presence. Our innovative strategies ensure measurable growth.</p>
+                <button
+                    class="group flex items-center gap-3 bg-white text-black px-8 py-4 rounded-full font-bold hover:bg-primary hover:text-white transition-all">Discover
+                    Now</button>
+            </div>
+            <div class="mt-auto hero-title text-right">
+                <h1 class="text-7xl md:text-8xl font-display font-extrabold text-white leading-[0.9] tracking-tighter">
+                    Digital <br /> Marketing — <span class="italic font-light opacity-80">That Inspires</span></h1>
+            </div>
+        </div>
+    </section>
+
+
+    <section id="about" class="py-24 relative overflow-hidden">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="flex flex-col lg:flex-row gap-20">
+                <div class="lg:w-1/2 animate-reveal">
+                    <div class="flex items-center gap-4 mb-8">
+                        <span class="material-symbols-outlined text-primary">view_quilt</span>
+                        <span class="text-sm font-bold tracking-widest uppercase text-slate-400">About Us</span>
+                        <span class="material-symbols-outlined text-primary">view_quilt</span>
+                    </div>
+                    <h2 class="text-4xl md:text-5xl font-display font-bold leading-tight mb-12 text-white">
+                        Driving digital success with innovative campaigns that boost visibility, engage audiences,
+                        and accelerate growth.
+                    </h2>
+
+                    <div class="space-y-12 mb-12">
+                        <div class="flex gap-8 group mission-card">
+                            <div
+                                class="flex-shrink-0 w-16 h-16 rounded-2xl border border-slate-700 flex items-center justify-center group-hover:bg-primary/10 transition-colors">
+                                <span
+                                    class="material-symbols-outlined text-3xl text-slate-400 group-hover:text-primary">track_changes</span>
+                            </div>
+                            <div class="border-b border-slate-800 pb-8 w-full">
+                                <h3 class="text-xl font-bold mb-3 text-white">Our Mission</h3>
+                                <p class="text-slate-400 leading-relaxed">Empower businesses with innovative digital
+                                    strategies, driving growth enhancing engagement.</p>
+                            </div>
+                        </div>
+                        <div class="flex gap-8 group mission-card">
+                            <div
+                                class="flex-shrink-0 w-16 h-16 rounded-2xl border border-slate-700 flex items-center justify-center group-hover:bg-primary/10 transition-colors">
+                                <span
+                                    class="material-symbols-outlined text-3xl text-slate-400 group-hover:text-primary">visibility</span>
+                            </div>
+                            <div class="border-b border-slate-800 pb-8 w-full">
+                                <h3 class="text-xl font-bold mb-3 text-white">Our Vision</h3>
+                                <p class="text-slate-400 leading-relaxed">Become a global leader in digital
+                                    marketing, inspiring creativity and shaping brand experiences.</p>
+                            </div>
+                        </div>
+                        <div class="flex gap-8 group mission-card">
+                            <div
+                                class="flex-shrink-0 w-16 h-16 rounded-2xl border border-slate-700 flex items-center justify-center group-hover:bg-primary/10 transition-colors">
+                                <span
+                                    class="material-symbols-outlined text-3xl text-slate-400 group-hover:text-primary">rocket_launch</span>
+                            </div>
+                            <div class="pb-8 w-full">
+                                <h3 class="text-xl font-bold mb-3 text-white">Our Goal</h3>
+                                <p class="text-slate-400 leading-relaxed">Deliver measurable digital marketing
+                                    solutions, helping businesses grow faster and achieve sustainable success.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="flex flex-col sm:flex-row items-center gap-10 pt-10 border-t border-slate-800">
+                        <div
+                            class="relative w-28 h-28 overflow-hidden rounded-full border-4 border-primary/20 shadow-xl flex-shrink-0">
+                            <video autoplay loop muted playsinline class="w-full h-full object-cover scale-110">
+                                <source src="Data/video/a1-video.mp4" type="video/mp4">
+                            </video>
+                            <div
+                                class="absolute inset-0 border-2 border-dashed border-primary rounded-full animate-spin-slow">
+                            </div>
+                        </div>
+
+                        <div class="text-center sm:text-left">
+                            <h4 class="text-4xl font-display font-extrabold text-white mb-1">
+                                <span class="counter" data-target="2">0</span>+
+                            </h4>
+                            <p class="text-sm font-medium text-slate-400 max-w-[150px] leading-tight">Years Of
+                                Working Experience</p>
+                        </div>
+
+                        <div class="sm:ml-auto">
+                            <a href="about.html"
+                                class="group flex items-center gap-3 bg-white text-black px-8 py-4 rounded-full font-bold hover:bg-primary hover:text-white transition-all shadow-lg">
+                                <span>Know About Us</span>
+                                <span
+                                    class="w-6 h-6 bg-black/10 rounded-full flex items-center justify-center group-hover:translate-x-1 transition-transform">
+                                    <i class="fas fa-long-arrow-right"></i>
+                                </span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="lg:w-1/2 animate-reveal">
+                    <div
+                        class="relative rounded-[2rem] overflow-hidden h-full min-h-[320px] lg:min-h-[600px] max-h-[420px] lg:max-h-none shadow-2xl group">
+                        <img class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105"
+                            src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&q=80" />
+                        <div
+                            class="absolute bottom-4 left-4 right-4 lg:bottom-8 lg:left-8 lg:right-8 bg-white/10 backdrop-blur-xl p-4 lg:p-8 rounded-2xl lg:rounded-3xl flex items-center justify-around border border-white/20">
+                            <div class="text-center">
+                                <p class="text-2xl lg:text-4xl font-display font-extrabold text-primary mb-0.5 lg:mb-1 counter"
+                                    data-target="15">15</p>
+                                <p class="text-[10px] lg:text-xs font-bold uppercase tracking-widest text-slate-300">
+                                    Projects</p>
+                            </div>
+                            <div class="w-px h-8 lg:h-12 bg-slate-700"></div>
+                            <div class="text-center">
+                                <p class="text-2xl lg:text-4xl font-display font-extrabold text-primary mb-0.5 lg:mb-1 counter"
+                                    data-target="12">12</p>
+                                <p class="text-[10px] lg:text-xs font-bold uppercase tracking-widest text-slate-300">
+                                    Experts</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="services-area" class="py-24  text-white relative z-10 overflow-hidden">
+
+        <div class="max-w-7xl mx-auto px-6 relative z-10">
+            <div class="flex flex-col lg:flex-row justify-between items-end mb-20 gap-8">
+                <div class="reveal-text">
+                    <div class="reveal-text flex items-center gap-3 mb-6">
+                        <span class="w-12 h-[2px] bg-[#E11D48]" style="margin-bottom: 40px;"></span>
+                        <span class="text-white font-bold uppercase tracking-widest text-xs"
+                            style="font-size: 27px; padding-bottom: 40px;">Our Services</span>
+                    </div>
+                    <h2 class="text-4xl md:text-6xl font-display font-bold leading-tight">Creative digital services
+                        <br /><span class="opacity-50 text-slate-400">to transform presence</span>
+                    </h2>
+                </div>
+                <button onclick="window.location.href=''"
+                    class="group bg-white/10 hover:bg-red-600 px-6 py-3 rounded-full transition-all border border-white/10 flex items-center gap-3 text-white hover:text-white">
+                    <span
+                        class="w-8 h-8 bg-white text-black rounded-full flex items-center justify-center group-hover:bg-black group-hover:text-white transition-colors"><span
+                            class="material-symbols-outlined text-[18px]">add</span></span>
+                    <span class="text-sm font-bold">View All Services</span>
+                </button>
+            </div>
+
+            <div class="space-y-0 border-b border-white/10">
+
+                <div class="service-hover-row border-t border-white/10 group/row overflow-hidden cursor-pointer">
+                    <div class="grid grid-cols-1 lg:grid-cols-[150px_1fr_450px] items-start gap-12 py-10">
+                        <div class="text-[14px] font-bold text-white/30 group-hover/row:text-primary">Service : 01
+                        </div>
+                        <div class="content-box">
+                            <h3 class="text-4xl font-bold text-white/30 group-hover/row:text-white service-title">
+                                Cloud
+                                Solutions</h3>
+                            <div
+                                class="details-wrap max-h-0 opacity-0 group-hover/row:max-h-[200px] group-hover/row:opacity-100 group-hover/row:pt-6">
+                                <p class="text-white/60 max-w-md">Scalable cloud infrastructure designed to optimize
+                                    performance.</p>
+                            </div>
+                        </div>
+                        <div class="image-box relative rounded-2xl overflow-hidden h-24 lg:h-24 shadow-2xl">
+                            <video
+                                class="w-full h-full object-cover grayscale brightness-50 group-hover/row:grayscale-0 group-hover/row:brightness-100 video-lazy"
+                                muted loop playsinline data-src="Data/video/service/1.mp4"></video>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="service-hover-row border-t border-white/10 group/row overflow-hidden cursor-pointer">
+                    <div class="grid grid-cols-1 lg:grid-cols-[150px_1fr_450px] items-start gap-12 py-10">
+                        <div class="text-[14px] font-bold text-white/30 group-hover/row:text-primary">Service : 02
+                        </div>
+                        <div class="content-box">
+                            <h3 class="text-4xl font-bold text-white/30 group-hover/row:text-white service-title">AI
+                                &
+                                ML</h3>
+                            <div
+                                class="details-wrap max-h-0 opacity-0 group-hover/row:max-h-[200px] group-hover/row:opacity-100 group-hover/row:pt-6">
+                                <p class="text-white/60">Intelligent solutions powered by artificial intelligence.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="image-box relative rounded-2xl overflow-hidden h-24 shadow-2xl">
+                            <video
+                                class="w-full h-full object-cover grayscale brightness-50 group-hover/row:grayscale-0 group-hover/row:brightness-100 video-lazy"
+                                muted loop playsinline data-src="Data/video/service/3.mp4"></video>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="service-hover-row border-t border-white/10 group/row overflow-hidden cursor-pointer">
+                    <div class="grid grid-cols-1 lg:grid-cols-[150px_1fr_450px] items-start gap-12 py-10">
+                        <div class="text-[14px] font-bold text-white/30 group-hover/row:text-primary">Service : 03
+                        </div>
+                        <div class="content-box">
+                            <h3 class="text-4xl font-bold text-white/30 group-hover/row:text-white service-title">
+                                Cybersecurity</h3>
+                            <div
+                                class="details-wrap max-h-0 opacity-0 group-hover/row:max-h-[200px] group-hover/row:opacity-100 group-hover/row:pt-6">
+                                <p class="text-white/60">Protecting your digital assets with advanced security.</p>
+                            </div>
+                        </div>
+                        <div class="image-box relative rounded-2xl overflow-hidden h-24 shadow-2xl">
+                            <video
+                                class="w-full h-full object-cover grayscale brightness-50 group-hover/row:grayscale-0 group-hover/row:brightness-100 video-lazy"
+                                muted loop playsinline data-src="Data/video/service/2.mp4"></video>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="service-hover-row border-t border-white/10 group/row overflow-hidden cursor-pointer">
+                    <div class="grid grid-cols-1 lg:grid-cols-[150px_1fr_450px] items-start gap-12 py-10">
+                        <div class="text-[14px] font-bold text-white/30 group-hover/row:text-primary">Service : 04
+                        </div>
+                        <div class="content-box">
+                            <h3 class="text-4xl font-bold text-white/30 group-hover/row:text-white service-title">
+                                Mobile
+                                Apps</h3>
+                            <div
+                                class="details-wrap max-h-0 opacity-0 group-hover/row:max-h-[200px] group-hover/row:opacity-100 group-hover/row:pt-6">
+                                <p class="text-white/60">Custom mobile applications for iOS and Android.</p>
+                            </div>
+                        </div>
+                        <div class="image-box relative rounded-2xl overflow-hidden h-24 shadow-2xl">
+                            <video
+                                class="w-full h-full object-cover grayscale brightness-50 group-hover/row:grayscale-0 group-hover/row:brightness-100 video-lazy"
+                                muted loop playsinline data-src="Data/video/service/4.mp4"></video>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="service-hover-row border-t border-white/10 group/row overflow-hidden cursor-pointer">
+                    <div class="grid grid-cols-1 lg:grid-cols-[150px_1fr_450px] items-start gap-12 py-10">
+                        <div class="text-[14px] font-bold text-white/30 group-hover/row:text-primary">Service : 05
+                        </div>
+                        <div class="content-box">
+                            <h3 class="text-4xl font-bold text-white/30 group-hover/row:text-white service-title">
+                                Web
+                                Development</h3>
+                            <div
+                                class="details-wrap max-h-0 opacity-0 group-hover/row:max-h-[200px] group-hover/row:opacity-100 group-hover/row:pt-6">
+                                <p class="text-white/60">Responsive and dynamic websites built with modern tech.</p>
+                            </div>
+                        </div>
+                        <div class="image-box relative rounded-2xl overflow-hidden h-24 shadow-2xl">
+                            <video
+                                class="w-full h-full object-cover grayscale brightness-50 group-hover/row:grayscale-0 group-hover/row:brightness-100 video-lazy"
+                                muted loop playsinline data-src="Data/video/service/5.mp4"></video>
+                        </div>
+                    </div>
+                </div>
+
+                <div
+                    class="service-hover-row border-t border-b border-white/10 group/row overflow-hidden cursor-pointer">
+                    <div class="grid grid-cols-1 lg:grid-cols-[150px_1fr_450px] items-start gap-12 py-10">
+                        <div class="text-[14px] font-bold text-white/30 group-hover/row:text-primary">Service : 06
+                        </div>
+                        <div class="content-box">
+                            <h3 class="text-4xl font-bold text-white/30 group-hover/row:text-white service-title">
+                                Data
+                                Analytics</h3>
+                            <div
+                                class="details-wrap max-h-0 opacity-0 group-hover/row:max-h-[200px] group-hover/row:opacity-100 group-hover/row:pt-6">
+                                <p class="text-white/60">Transforming data into actionable business insights.</p>
+                            </div>
+                        </div>
+                        <div class="image-box relative rounded-2xl overflow-hidden h-24 shadow-2xl">
+                            <video
+                                class="w-full h-full object-cover grayscale brightness-50 group-hover/row:grayscale-0 group-hover/row:brightness-100 video-lazy"
+                                muted loop playsinline data-src="Data/video/service/6.mp4"></video>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section id="awards" class="py-16 md:py-24 relative overflow-hidden">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="flex flex-col lg:flex-row lg:items-end justify-between gap-4 md:gap-8 mb-12 md:mb-24 reveal-award-head">
+                <div class="max-w-3xl">
+                    <h2
+                        class="text-3xl md:text-5xl lg:text-7xl font-display font-extrabold text-white text-slate-900 leading-tight">
+                        Celebrating <span class="text-primary italic">Excellence</span> Through Award-Winning Work.
+                    </h2>
+                </div>
+                <button
+                    class="bg-black text-white px-6 md:px-10 py-3 md:py-5 rounded-full font-black hover:bg-primary transition-all shadow-2xl flex items-center gap-3 md:gap-4 group self-start md:self-end whitespace-nowrap text-sm md:text-base">
+                    More Awards <i
+                        class="fas fa-arrow-right group-hover:rotate-45 transition-transform duration-500"></i>
+                </button>
+            </div>
+
+            <div class="flex flex-col lg:flex-row gap-8 md:gap-16 items-start relative" id="awards-animation-parent">
+
+                <div class="hidden lg:block w-1/3" id="award-image-pin-container">
+                    <div
+                        class="award-sticky-card rounded-2xl md:rounded-[3rem] overflow-hidden shadow-2xl border-4 border-white relative group w-full h-[300px] md:h-[550px]">
+                        <img id="scrolling-award-img" alt="Recognition"
+                            class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                            src="Data/image/1.PNG" />
+                    </div>
+                </div>
+
+                <div class="w-full lg:w-2/3 space-y-2 md:space-y-4" id="awards-content-list">
+                    <div
+                        class="award-list-item border-t grid grid-cols-1 md:grid-cols-3 items-center py-6 md:py-12 lg:py-16 px-4 md:px-6 lg:px-8 hover:bg-slate-50 group gap-4 md:gap-0">
+                        <span class="text-xl md:text-2xl lg:text-3xl font-bold group-hover:text-primary transition-colors">Design
+                            Agency</span>
+                        <span class="text-slate-500 text-sm md:text-base italic md:text-center">Excellence</span>
+                        <span class="text-slate-900 font-black text-xl md:text-2xl lg:text-3xl md:text-right">2024</span>
+                    </div>
+                    <div
+                        class="award-list-item border-t grid grid-cols-1 md:grid-cols-3 items-center py-6 md:py-12 lg:py-16 px-4 md:px-6 lg:px-8 hover:bg-slate-50 group gap-4 md:gap-0">
+                        <span class="text-xl md:text-2xl lg:text-3xl font-bold group-hover:text-primary transition-colors">Innovative
+                            Team</span>
+                        <span class="text-slate-500 text-sm md:text-base italic md:text-center">Professional</span>
+                        <span class="text-slate-900 font-black text-xl md:text-2xl lg:text-3xl md:text-right">2022</span>
+                    </div>
+                    <div
+                        class="award-list-item border-t grid grid-cols-1 md:grid-cols-3 items-center py-6 md:py-12 lg:py-16 px-4 md:px-6 lg:px-8 hover:bg-slate-50 group gap-4 md:gap-0">
+                        <span class="text-xl md:text-2xl lg:text-3xl font-bold group-hover:text-primary transition-colors">Digital
+                            Product</span>
+                        <span class="text-slate-500 text-sm md:text-base italic md:text-center">Design</span>
+                        <span class="text-slate-900 font-black text-xl md:text-2xl lg:text-3xl md:text-right">2020</span>
+                    </div>
+                    <div
+                        class="award-list-item border-t border-b grid grid-cols-1 md:grid-cols-3 items-center py-6 md:py-12 lg:py-16 px-4 md:px-6 lg:px-8 hover:bg-slate-50 group gap-4 md:gap-0">
+                        <span class="text-xl md:text-2xl lg:text-3xl font-bold group-hover:text-primary transition-colors">Web
+                            Development</span>
+                        <span class="text-slate-500 text-sm md:text-base italic md:text-center">Excellence</span>
+                        <span class="text-slate-900 font-black text-xl md:text-2xl lg:text-3xl md:text-right">2010</span>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section id="portfolio" class="py-28 overflow-hidden relative">
+        <!-- Subtle section background accent -->
+        <div
+            class="absolute inset-0 bg-gradient-to-b from-transparent via-primary/5 to-transparent pointer-events-none">
+        </div>
+
+        <div class="max-w-7xl mx-auto px-6 relative z-10">
+
+            <!-- Section Header -->
+            <div class="flex flex-col md:flex-row md:items-end justify-between gap-8 mb-20 portfolio-header">
+                <div>
+                    <!-- Outlined decorative heading -->
+                    <h2
+                        class="portfolio-outline-text text-[80px] md:text-[130px] font-display font-extrabold uppercase leading-[0.85] mb-2 select-none">
+                        Experience
+                    </h2>
+                    <!-- Solid white sub-heading -->
+                    <h3 class="text-4xl md:text-6xl text-white font-display font-bold uppercase tracking-tight">
+                        Professional Journey
+                    </h3>
+                </div>
+
+                <!-- CTA Button -->
+                <a href="./portfolio.html"
+                    class="self-start md:self-end bg-white/10 border border-white/20 backdrop-blur text-white px-8 py-4 rounded-full flex items-center gap-4 hover:bg-primary hover:border-primary transition-all duration-300 group shadow-xl">
+                    <div
+                        class="w-10 h-10 bg-primary rounded-full flex items-center justify-center group-hover:rotate-45 group-hover:bg-white transition-all duration-300">
+                        <span
+                            class="material-symbols-outlined text-[20px] group-hover:text-primary">arrow_forward</span>
+                    </div>
+                    <span class="font-bold text-sm uppercase tracking-widest">More Portfolio</span>
+                </a>
+
+            </div>
+
+            <!-- Portfolio Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-8 -mx-6 md:mx-0" id="portfolio-grid">
+
+                <!-- Large Hero Card -->
+                <div class="md:col-span-2 group portfolio-item relative rounded-none md:rounded-[2.5rem] overflow-hidden bg-slate-900 shadow-2xl md:h-[50vh]"
+                    style="aspect-ratio: 4/3; width: 100%; md:aspect-ratio: 25/9;">
+                    <img alt="Rizzle Creator Campaign"
+                        class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110"
+                        src="Data/image/rizzle.jpg" />
+
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent"></div>
+
+                    <div class="absolute inset-0 flex flex-col justify-end p-4 md:p-8 lg:p-12">
+                        <span
+                            class="inline-flex items-center gap-2 bg-primary/90 text-white text-[9px] md:text-[11px] font-bold uppercase tracking-widest px-3 md:px-4 py-1 md:py-1.5 rounded-full w-fit mb-4 md:mb-6">
+                            Creator & Platform Management
+                        </span>
+
+                        <div
+                            class="portfolio-content translate-y-6 opacity-0 transition-all duration-700 group-hover:translate-y-0 group-hover:opacity-100">
+                            <h4 class="text-lg md:text-2xl lg:text-4xl font-display font-bold text-white mb-2 md:mb-4 leading-tight">
+                                Rizzle, Josh, Moj & ShareChat Creator Strategy
+                            </h4>
+                            <a href="portfolio.html"
+                                class="inline-flex items-center gap-2 text-white border-b-2 border-primary pb-0.5 font-bold hover:text-primary transition-colors text-sm md:text-base">
+                                Explore Project
+                                <span class="material-symbols-outlined text-[14px] md:text-[16px]">north_east</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 2 — 89.4 Tamil FM -->
+                <div class="group portfolio-item relative rounded-lg md:rounded-[2.5rem] overflow-hidden shadow-xl"
+                    style="aspect-ratio: 1/1;">
+                    <img class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110"
+                        src="Data/image/tamilfm.png" alt="89.4 Tamil FM" />
+                    <div
+                        class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/20 to-transparent flex flex-col justify-end p-4 md:p-10">
+                        <div
+                            class="portfolio-content translate-y-6 opacity-0 transition-all duration-700 group-hover:translate-y-0 group-hover:opacity-100">
+                            <span class="text-primary font-bold text-[9px] md:text-[11px] uppercase tracking-widest mb-2 block">
+                                Radio & Media Management
+                            </span>
+                            <h4 class="text-lg md:text-2xl font-bold text-white mb-3 md:mb-5">
+                                89.4 Tamil FM Digital Promotions
+                            </h4>
+                            <a href="portfolio.html"
+                                class="inline-flex items-center gap-2 text-white border-b-2 border-primary pb-0.5 font-bold hover:text-primary transition-colors text-sm md:text-base">
+                                Explore Project
+                                <span class="material-symbols-outlined text-[14px] md:text-[16px]">north_east</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 3 — UV Communications & Tata Motors -->
+                <div class="group portfolio-item relative rounded-lg md:rounded-[2.5rem] overflow-hidden shadow-xl"
+                    style="aspect-ratio: 1/1;">
+                    <img class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110"
+                        src="Data/image/3.PNG" alt="UV Communications Campaign" />
+                    <div
+                        class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/20 to-transparent flex flex-col justify-end p-4 md:p-10">
+                        <div
+                            class="portfolio-content translate-y-6 opacity-0 transition-all duration-700 group-hover:translate-y-0 group-hover:opacity-100">
+                            <span class="text-primary font-bold text-[9px] md:text-[11px] uppercase tracking-widest mb-2 block">
+                                Film Promotions & Brand Strategy
+                            </span>
+                            <h4 class="text-lg md:text-2xl font-bold text-white mb-3 md:mb-5">
+                                UV Communications & Tata Motors Campaigns
+                            </h4>
+                            <a href="portfolio.html"
+                                class="inline-flex items-center gap-2 text-white border-b-2 border-primary pb-0.5 font-bold hover:text-primary transition-colors text-sm md:text-base">
+                                Explore Project
+                                <span class="material-symbols-outlined text-[14px] md:text-[16px]">north_east</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section id="experience-section" class="py-32  relative overflow-hidden">
+        <div class="max-w-7xl mx-auto px-6 flex flex-col lg:flex-row gap-20 items-center">
+            <div class="lg:w-1/2 exp-content-box">
+                <div class="flex items-center gap-3 mb-8"><span class="w-10 h-[2px] bg-primary"></span><span
+                        class="text-primary font-bold uppercase text-xs " style="font-size: 27px;">Our Impact</span>
+                </div>
+                <h2 class="text-5xl md:text-7xl font-display font-black leading-[1.1] mb-12">Design that <br />
+                    <span class="text-transparent bg-clip-text bg-gradient-to-r from-primary to-rose-500">Drives
+                        Results.</span>
+                </h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div class="bg-slate-50 p-10 rounded-[2.5rem] border hover-lift group">
+                        <span class="text-6xl font-display font-black text-slate-900">1k<span
+                                class="text-primary">+</span></span>
+                        <h4 class="text-xl font-bold text-black mb-3 mt-4">Happy Customers</h4>
+                        <p class="text-slate-500 text-sm">Sustainable creativity that builds timeless brand value.
+                        </p>
+                    </div>
+                    <div class="bg-slate-50 p-10 rounded-[2.5rem] border flex flex-col justify-center">
+                        <p class="uppercase text-xs text-black font-bold mb-6">Execution Accuracy</p>
+                        <div class="space-y-8">
+                            <div>
+                                <div class="flex justify-between text-sm text-black font-bold mb-3">
+                                    <span>Solutions</span><span class="text-primary">100%</span>
+                                </div>
+                                <div class="h-2 bg-slate-200 rounded-full overflow-hidden">
+                                    <div class="h-full bg-primary progress-fill w-full"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="lg:w-1/2 w-full exp-visual-wrapper">
+                <div class="relative rounded-[2.5rem] overflow-hidden aspect-[4/5] shadow-2xl" id="exp-main-slider">
+                    <div class="exp-slide active absolute inset-0 transition-opacity duration-1000">
+                        <img class="w-full h-full object-cover" src="Data/image/profile1.jpg" />
+                        <div class="absolute bottom-12 left-12 text-white font-bold text-3xl">Modern Design.</div>
+                    </div>
+                    <div class="exp-slide absolute inset-0 transition-opacity duration-1000">
+                        <img class="w-full h-full object-cover" src="Data/image/profile2.jpg" />
+                        <div class="absolute bottom-12 left-12 text-white font-bold text-3xl">Brand Presence.</div>
+                    </div>
+                    <div class="absolute bottom-10 right-10 flex gap-3 z-30">
+                        <button id="exp-prev"
+                            class="w-12 h-12 rounded-full border bg-black/40 text-white flex items-center justify-center hover:bg-primary transition-all">←</button>
+                        <button id="exp-next"
+                            class="w-12 h-12 rounded-full border bg-black/40 text-white flex items-center justify-center hover:bg-primary transition-all">→</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- <section id="blog-section" class="py-32  overflow-hidden relative">
+        <div class="max-w-7xl mx-auto px-6">
+            <h2 class="text-5xl md:text-6xl font-display font-black text-slate-900 mb-20 text-white">Latest <span
+                    class="text-primary">Perspectives.</span></h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+                <div class="lg:col-span-1 group relative rounded-[2.5rem] overflow-hidden min-h-[550px] shadow-2xl">
+                    <img class="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110"
+                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuAiMOKJEk4vrrkaE9EbwM54vSGpn_ODbZlNuliZ5aiLH0cTN55TAS2UexpoL1MGUPSwEyCxAhekzRsCqs00c8aSZLaj6jJ2KxQDo3iTNtTAo0gNXWvA_JAosAXo_hEn1fro9HETt0nSBeDPu5SVrTq9CRVlc03SuE5_GTXJQBGqWLAwSAqPn4Zy4RV7kZ89LO2_Bk2g4acfDlo56g4is9oYQLoU9Lf-jpX6l2PFTdqGwgD8kyxSTaqj0w-eijpxbgfHvT2Hhml0GiBS" />
+                    <div class="absolute inset-0 bg-gradient-to-t from-black flex flex-col justify-end p-12">
+                        <span
+                            class="bg-primary px-4 py-1 rounded-full text-[10px] font-bold uppercase text-white mb-6 inline-block w-fit">Trending</span>
+                        <h3 class="text-3xl font-display font-bold text-white mb-4">The future of digital marketing:
+                            trends to watch</h3>
+                        <p
+                            class="text-white/60 text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                            Discover how AI is reshaping the landscape of modern outreach.</p>
+                    </div>
+                </div>
+                <div class="lg:col-span-1 group relative rounded-[2.5rem] overflow-hidden min-h-[550px] shadow-2xl">
+                    <img class="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110"
+                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuAiMOKJEk4vrrkaE9EbwM54vSGpn_ODbZlNuliZ5aiLH0cTN55TAS2UexpoL1MGUPSwEyCxAhekzRsCqs00c8aSZLaj6jJ2KxQDo3iTNtTAo0gNXWvA_JAosAXo_hEn1fro9HETt0nSBeDPu5SVrTq9CRVlc03SuE5_GTXJQBGqWLAwSAqPn4Zy4RV7kZ89LO2_Bk2g4acfDlo56g4is9oYQLoU9Lf-jpX6l2PFTdqGwgD8kyxSTaqj0w-eijpxbgfHvT2Hhml0GiBS" />
+                    <div class="absolute inset-0 bg-gradient-to-t from-black flex flex-col justify-end p-12">
+                        <span
+                            class="bg-primary px-4 py-1 rounded-full text-[10px] font-bold uppercase text-white mb-6 inline-block w-fit">Trending</span>
+                        <h3 class="text-3xl font-display font-bold text-white mb-4">AI and machine learning in design
+                        </h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section> -->
+
+    <footer class="bg-slate-900 text-white py-16">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
+                <div class="flex flex-col items-center sm:items-start text-center sm:text-left">
+                    <img src="Data/image/Almity_logo_white.png" class="logo_footer w-36 mb-6">
+                    <p class="text-slate-400">Elevating brands through innovative digital strategies and creative
+                        excellence.</p>
+                </div>
+                <div class="flex flex-col items-center sm:items-start text-center sm:text-left">
+                    <h4 class="text-lg font-bold mb-6">Quick Links</h4>
+                    <ul class="space-y-4 text-slate-400">
+                        <li><a class="hover:text-primary transition" href="#">About Us</a></li>
+                        <li><a class="hover:text-primary transition" href="#">Our Services</a></li>
+                        <li><a class="hover:text-primary transition" href="#">Our Projects</a></li>
+                    </ul>
+                </div>
+                <div class="flex flex-col items-center sm:items-start text-center sm:text-left">
+                    <h4 class="text-lg font-bold mb-6">Contact Info</h4>
+                    <ul class="space-y-4 text-slate-400">
+                        <li>6/3a,
+                            Suduthanni Vaikkal Theru<br /> Ponnagaram, Arappalayam, <br /> Ponnagaram Colony,
+                            Madurai, Tamil Nadu
+                            625016</li>
+                        <li>Sirajarun96@gmail.com</li>
+                        <li>+91 9103952006</li>
+                    </ul>
+                </div>
+                <div class="flex flex-col items-center sm:items-start text-center sm:text-left">
+                    <h4 class="text-lg font-bold mb-6">Newsletter</h4>
+                    <div class="relative max-w-sm w-full">
+                        <input type="email" placeholder="Email Address"
+                            class="w-full bg-slate-800 rounded-full py-4 px-6 text-white outline-none">
+                        <button
+                            class="absolute right-2 top-2 bottom-2 bg-primary px-6 rounded-full font-bold">Join</button>
+                    </div>
+                </div>
+            </div>
+            <div class="pt-8 border-t border-slate-800 text-center text-slate-500">
+                <p>© 2026 AlMity Digital Marketing. All rights reserved.</p>
+                <p>© 2026 Developed by HexaVision Technologies.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="antiGravityBackground.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>
